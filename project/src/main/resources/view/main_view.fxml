@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.controll.MainController" alignment="CENTER" >
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    <Label text="Hệ Thống Xe Buýt" style="-fx-font-size: 18px;"/>
+    <ComboBox fx:id="routeBox" promptText="Chọn tuyến đường"/>
+    <ListView fx:id="tripList" prefHeight="150"/>
+    <Button fx:id="bookBtn" text="Đặt vé"/>
+    <Label fx:id="statusLabel" text="" style="-fx-text-fill: green;"/>
+</VBox>
