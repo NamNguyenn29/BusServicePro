@@ -5,10 +5,10 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class searchTrip {
+public class SearchTrip {
     private List<Trip> allTrip;
 
-    public searchTrip(List<Trip> allTrip) {
+    public SearchTrip(List<Trip> allTrip) {
         this.allTrip = allTrip;
     }
 
