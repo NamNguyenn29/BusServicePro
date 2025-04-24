@@ -1,22 +1,9 @@
 package com.example;
 
+import com.example.DAO.UserDAO;
 import com.example.models.*;
-import com.mysql.cj.xdevapi.Result;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
 //    @Override
