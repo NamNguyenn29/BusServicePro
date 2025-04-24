@@ -42,23 +42,25 @@ public class Main {
 //        for(Route r : routeList) {
 //            System.out.println(r.getStartLocation() + " " + r.getEndLocation());
 //        }
-        Connection conn = DatabaseConnection.getConnection();
-        if(conn!=null) {
-                String sql = "select * from user";
-                Statement stament = conn.createStatement();
-                ResultSet rs =  stament.executeQuery(sql);
-                while (rs.next()) {
-                    int id = rs.getInt("userID");
-                    String email = rs.getString("email");
-                    String fullName = rs.getString("fullName");
-                    String username = rs.getString("username");
-                    String password = rs.getString("userpassword");
-                    String phone  = rs.getString("phone");
-                    Customer cus = new Customer(fullName,email,username,password,phone);
-                    System.out.println(cus.getName());
-                }
-//
-        }
+//        Connection conn = DatabaseConnection.getConnection();
+//        if(conn!=null) {
+//                String sql = "select * from user";
+//                Statement stament = conn.createStatement();
+//                ResultSet rs =  stament.executeQuery(sql);
+//                while (rs.next()) {
+//                    int id = rs.getInt("userID");
+//                    String email = rs.getString("email");
+//                    String fullName = rs.getString("fullName");
+//                    String username = rs.getString("username");
+//                    String password = rs.getString("userpassword");
+//                    String phone  = rs.getString("phone");
+//                    Customer cus = new Customer(fullName,email,username,password,phone);
+//                    System.out.println(cus.getName());
+//                }
+////
+//        }
+        User user = new Customer("nam", "nam22", "nam", "123", "1234567");
+        UserDAO.register(user);
 
     }
 }
