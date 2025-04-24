@@ -18,6 +18,16 @@ public abstract class User {
         this.username = username;
         this.password = password;
         this.phone = phone;
+    } public User( int id,String name, String email, String username, String password, String phone) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
     }
 
+    public String getName() {
+        return name;
+    }
 }

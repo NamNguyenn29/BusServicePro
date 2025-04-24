@@ -9,25 +9,15 @@ public class Route {
     private String routeNumber;
     private String startLocation;
     private String endLocation;
-    private List<BusTop> busstopList;
 
     public Route(String routeNumber, String startLocation, String endLocation) {
         this.routeNumber = routeNumber;
         this.startLocation = startLocation;
         this.endLocation = endLocation;
-        this.busstopList = new ArrayList<>();
     }
 
-    public void addBusStop(BusTop busTop) {
-        busstopList.add(busTop);
-    }
-
-    public List<BusTop> getBusstopList() {
-        return busstopList;
-    }
     public int getRouteID() {
         return routeID;
-
 
     }
 

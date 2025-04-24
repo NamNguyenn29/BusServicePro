@@ -10,5 +10,13 @@ public class Customer extends User{
     public void  viewBookingHistory () {
 
     }
-    public void makeBooking() {}
+    public void makeBooking() {
+
+    }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
 }
+
