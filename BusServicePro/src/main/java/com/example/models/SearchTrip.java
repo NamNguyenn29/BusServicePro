@@ -1,25 +1,40 @@
 package com.example.models;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import com.example.models.Stoptime;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class SearchTrip {
-    private List<Trip> allTrip;
 
-    public SearchTrip(List<Trip> allTrip) {
-        this.allTrip = allTrip;
+    private List<Trip> trips;
+
+    public SearchTrip(List<Trip> trips) {
+        this.trips = trips;
     }
 
-    public List<Trip> search (String start, String end, LocalDate date, LocalTime time) {
-        List<Trip> results = new ArrayList<>();
-        for(Trip trip : allTrip) {
-            Route route = trip.getRoute();
-            if(trip.getDate().equals(date) && trip.getTime().equals(time) && route.getStartLocation().equals(start) && route.getEndLocation().equals(end)) {
-                results.add(trip);
+    public List<Trip> searchTrips(Stop fromStop, Stop toStop) {
+        List<Trip> result = new ArrayList<>();
+
+        for (Trip trip : trips) {
+            List<Stoptime> stoptimes = trip.getStoptimes();
+            int fromIndex = -1, toIndex = -1;
+
+            for (int i = 0; i < stoptimes.size(); i++) {
+                if (stoptimes.get(i).getStop().equals(fromStop)) {
+                    fromIndex = i;
+                }
+                if (stoptimes.get(i).getStop().equals(toStop)) {
+                    toIndex = i;
+                }
+            }
+
+            if (fromIndex != -1 && toIndex != -1 && fromIndex < toIndex) {
+                result.add(trip);
             }
         }
-        return results;
+
+        return result;
     }
+
 }

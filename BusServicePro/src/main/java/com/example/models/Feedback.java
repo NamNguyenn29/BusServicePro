@@ -3,14 +3,13 @@ package com.example.models;
 import java.time.LocalDate;
 
 public class Feedback {
-    static int count = 0;
-    private int feedbackID;
+    private int feedbackId;
     private String message;
-    private LocalDate submmitDate;
+    private LocalDate submitDate;
 
-    public Feedback( String message) {
-        this.feedbackID = ++count;
+    public Feedback(int feedbackId, String message, LocalDate submitDate) {
+        this.feedbackId = feedbackId;
         this.message = message;
-        this.submmitDate = LocalDate.now();
+        this.submitDate = submitDate;
     }
 }

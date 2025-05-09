@@ -1,5 +1,4 @@
 package com.example.DAO;
-
 import com.example.models.DatabaseConnection;
 import com.example.models.User;
 import com.example.utilities.PasswordUtil;
@@ -32,7 +31,7 @@ public class UserDAO {
         String sql = "INSERT INTO user (userID,email,fullName, username, userpassword, phone) VALUES (?,?,?,?,?,?)";
         try(Connection conn = DatabaseConnection.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1,user.getId());
+            stmt.setInt(1,user.getUserID());
             stmt.setString(2,user.getEmail());
             stmt.setString(3,user.getName());
             stmt.setString(4,user.getUsername());

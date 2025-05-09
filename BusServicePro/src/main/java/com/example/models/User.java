@@ -1,53 +1,33 @@
 package com.example.models;
 
-public abstract class User {
-    static  int count = 0;
-    protected int id;
-    protected String name;
-    protected String email;
-    protected String username;
-    protected String password;
-    protected String phone;
+public class User {
+    private int userID;
+    private String username, password, name, email, phone;
 
+    public User(int userID, String username) {
+        this.userID = userID;
+        this.username = username;
 
+    }
 
-    public User( String name, String email, String username, String password, String phone) {
-        this.id = ++count;
-        this.name = name;
-        this.email = email;
+    public User(int customerID, String username, String password, String name, String email, String phone) {
+        this.userID = customerID;
         this.username = username;
         this.password = password;
-        this.phone = phone;
-    } public User( int id,String name, String email, String username, String password, String phone) {
-        this.id = id;
         this.name = name;
         this.email = email;
-        this.username = username;
-        this.password = password;
         this.phone = phone;
     }
 
-    public String getName() {
-        return name;
+    public int getUserID() {
+        return userID;
     }
+    public String getUsername() { return username; }
+    public String getPassword() { return password; }
+    public String getName() { return name; }
+    public String getEmail() { return email; }
+    public String getPhone() { return phone; }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
 }
+
+

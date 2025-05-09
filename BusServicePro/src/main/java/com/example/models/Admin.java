@@ -1,17 +1,21 @@
 package com.example.models;
 
-public class Admin  extends User{
+import java.util.List;
 
-    public Admin( String name, String email, String username, String password, String phone) {
-        super( name, email, username, password, phone);
+public class Admin {
+    private int adminID;
+    private String username, password;
+
+    public Admin(int adminID, String username, String password) {
+        this.adminID = adminID;
+        this.username = username;
+        this.password = password;
     }
 
-    public void addRoute() {
-
+    public boolean addRoute(Route route) {
+        return false;
     }
-    public void viewFeedBack() {
-
+    public List<Feedback> viewFeedback() {
+        return null;
     }
-
 }
-
