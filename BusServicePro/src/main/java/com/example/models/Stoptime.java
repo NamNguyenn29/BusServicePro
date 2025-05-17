@@ -4,7 +4,7 @@ import java.time.LocalTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-class Stoptime {
+public class Stoptime {
     private Stop stop;
     private LocalTime arrivalTime;
     private LocalTime departureTime;
@@ -19,4 +19,12 @@ class Stoptime {
     public LocalTime getArrivalTime() { return arrivalTime; }
     public LocalTime getDepartureTime() { return departureTime; }
 
+    @Override
+    public String toString() {
+        return "Stoptime{" +
+                "stop=" + stop +
+                ", arrivalTime=" + arrivalTime +
+                ", departureTime=" + departureTime +
+                '}';
+    }
 }

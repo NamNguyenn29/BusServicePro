@@ -2,7 +2,7 @@ package com.example.models;
 
 import java.util.*;
 import java.util.stream.Collectors;
-class Bus {
+public class Bus {
     private int busID;
     private String licensePlate;
     private int capacity;
@@ -17,4 +17,22 @@ class Bus {
 
     public int getCapacity() { return capacity; }
     public Route getRoute() { return route; }
+
+    public int getBusID() {
+        return busID;
+    }
+
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    @Override
+    public String toString() {
+        return "Bus{" +
+                "busID=" + busID +
+                ", licensePlate='" + licensePlate + '\'' +
+                ", capacity=" + capacity +
+                ", route=" + route +
+                '}';
+    }
 }

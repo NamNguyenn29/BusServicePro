@@ -10,8 +10,8 @@ public class User {
 
     }
 
-    public User(int customerID, String username, String password, String name, String email, String phone) {
-        this.userID = customerID;
+    public User(int userID, String username, String password, String name, String email, String phone) {
+        this.userID = userID;
         this.username = username;
         this.password = password;
         this.name = name;
@@ -28,6 +28,10 @@ public class User {
     public String getEmail() { return email; }
     public String getPhone() { return phone; }
 
+    @Override
+    public String toString() {
+        return name ;
+    }
 }
 
 

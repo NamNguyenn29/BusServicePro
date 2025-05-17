@@ -4,7 +4,7 @@ import java.time.LocalTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-class Stop {
+public class Stop {
     private int stopID;
     private String stopName;
 
@@ -29,8 +29,11 @@ class Stop {
         return Objects.hash(stopID);
     }
 
+
     @Override
     public String toString() {
-        return stopName;
+
+        return stopName + " " + stopID;
     }
+
 }

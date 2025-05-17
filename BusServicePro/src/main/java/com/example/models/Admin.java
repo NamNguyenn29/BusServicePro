@@ -12,6 +12,12 @@ public class Admin {
         this.password = password;
     }
 
+    public int getAdminID() {
+        return adminID;
+    }
+    public String getUsername() { return username; }
+    public String getPassword() { return password; }
+
     public boolean addRoute(Route route) {
         return false;
     }
