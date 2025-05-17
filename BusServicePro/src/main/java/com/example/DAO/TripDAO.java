@@ -197,4 +197,97 @@ public class TripDAO {
         return result;
     }
 
+
+
+    // deleteTrip
+    public static boolean deleteTrip(int tripID) {
+        String deleteTripStopTimeSQL = "DELETE FROM trip_stoptime WHERE tripID = ?";
+        String deleteTripSQL = "DELETE FROM Trip WHERE tripID = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection()) {
+            conn.setAutoCommit(false);
+
+            try (
+                    PreparedStatement deleteTripStopTimeStmt = conn.prepareStatement(deleteTripStopTimeSQL);
+                    PreparedStatement deleteTripStmt = conn.prepareStatement(deleteTripSQL)
+            ) {
+                // Xoá stop_times trong bảng trip_stoptime
+                deleteTripStopTimeStmt.setInt(1, tripID);
+                deleteTripStopTimeStmt.executeUpdate();
+
+                // Xoá trip
+                deleteTripStmt.setInt(1, tripID);
+                int rowsAffected = deleteTripStmt.executeUpdate();
+
+                conn.commit();
+                return rowsAffected > 0;
+
+            } catch (SQLException e) {
+                conn.rollback();
+                e.printStackTrace();
+                System.out.println("Delete trip failed!");
+                return false;
+            } finally {
+                conn.setAutoCommit(true);
+                System.out.println("Delete trip success!");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+    // update Trip
+    public static boolean updateTrip(Trip trip) {
+        String updateTripSQL = "UPDATE Trip SET routeID = ?, busID = ? WHERE tripID = ?";
+        String deleteTripStopTimesSQL = "DELETE FROM trip_stoptime WHERE tripID = ?";
+        String insertTripStopTimeSQL = "INSERT INTO trip_stoptime (tripID, stopID, stopOrder) VALUES (?, ?, ?)";
+
+        try (Connection conn = DatabaseConnection.getConnection()) {
+            conn.setAutoCommit(false); // Bắt đầu transaction
+
+            try (
+                    PreparedStatement updateTripStmt = conn.prepareStatement(updateTripSQL);
+                    PreparedStatement deleteTripStopTimesStmt = conn.prepareStatement(deleteTripStopTimesSQL);
+                    PreparedStatement insertTripStopTimeStmt = conn.prepareStatement(insertTripStopTimeSQL)
+            ) {
+                // Cập nhật bảng Trip
+                updateTripStmt.setInt(1, trip.getRoute().getRouteID());
+                updateTripStmt.setInt(2, trip.getBus().getBusID());
+                updateTripStmt.setInt(3, trip.getTripID());
+                updateTripStmt.executeUpdate();
+
+                // Xóa các stopTimes cũ
+                deleteTripStopTimesStmt.setInt(1, trip.getTripID());
+                deleteTripStopTimesStmt.executeUpdate();
+
+                // Thêm lại các stopTimes mới
+                List<Stoptime> stopTimes = trip.getStoptimes();
+                for (int i = 0; i < stopTimes.size(); i++) {
+                    Stoptime stopTime = stopTimes.get(i);
+                    insertTripStopTimeStmt.setInt(1, trip.getTripID());
+                    insertTripStopTimeStmt.setInt(2, stopTime.getStop().getStopID());
+                    insertTripStopTimeStmt.setInt(3, i + 1);
+                    insertTripStopTimeStmt.executeUpdate();
+                }
+
+                conn.commit(); // Hoàn tất giao dịch
+                System.out.println("Cập nhật trip thành công");
+                return true;
+            } catch (SQLException e) {
+                conn.rollback(); // Rollback nếu có lỗi
+                e.printStackTrace();
+                return false;
+            } finally {
+                conn.setAutoCommit(true); // Trả lại chế độ mặc định
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

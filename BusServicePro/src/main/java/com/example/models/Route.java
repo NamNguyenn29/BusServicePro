@@ -20,8 +20,9 @@ public class Route {
     }
 
 
-
-
+    public void setRouteID(int routeID) {
+        this.routeID = routeID;
+    }
 
     public List<Stop> getStops() { return stops; }
 

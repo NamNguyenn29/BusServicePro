@@ -36,5 +36,9 @@ public class Trip {
 
     }
 
-
+    public void setRoute(Route route) {
+        this.route = route;
+    }
+    public void setBus(Bus bus) { this.bus = bus; }
+    public void setTripID(int tripID) { this.tripID = tripID; }
 }

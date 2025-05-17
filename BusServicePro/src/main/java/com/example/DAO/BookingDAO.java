@@ -186,7 +186,29 @@ public class BookingDAO {
         return bookings;
     }
 
+    // xoa booking
+    public static boolean deleteBooking(int bookingID) {
+        String sql = "DELETE FROM Booking WHERE id = ?";
 
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, bookingID);
+            int rowsAffected = stmt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Booking deleted successfully.");
+                return true;
+            } else {
+                System.out.println("No booking found with ID: " + bookingID);
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 
 

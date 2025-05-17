@@ -1,7 +1,6 @@
 BookingDAO :
     currentTripbookkings là lưu những booking của trip hiện tại để check xem bus có full chỗ chưa
     bookings là chữa hết danh sách các booking
-
     tạo booking check xem booking đó có hợp lệ hay không , sau đó lưu xuống db
     gett bookings by userID : lấy những booking cuả user đó
     getBooking by tripID:
@@ -51,4 +50,6 @@ User
 
 AddminDAO
     login và register, get admin by id
+
+mức độ cao đến thấp : booking - trip - bus - route - stop - stopTime
 

@@ -25,3 +25,20 @@ public class Admin {
         return null;
     }
 }
+
+
+// add min có thể addbus
+// xoá bus by id
+// updateBus
+
+
+// có thể xem all booking
+
+// có thể get all feedback
+
+
+// có thể add route , khi add route đồng thời add các routeStop
+// có thể xóa route
+
+
+// add trip , updatetrip ,delete trip

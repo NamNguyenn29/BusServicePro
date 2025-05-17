@@ -15,6 +15,22 @@ public class Bus {
         this.route = route;
     }
 
+    public void setBusID(int busID) {
+        this.busID = busID;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
+    }
+
     public int getCapacity() { return capacity; }
     public Route getRoute() { return route; }
 

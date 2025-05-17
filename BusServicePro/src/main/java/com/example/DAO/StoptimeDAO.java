@@ -71,24 +71,61 @@ public class StoptimeDAO {
         }
     }
 
-//    public static int addStoptimeAndReturnID(Stoptime stoptime) {
-//        String sql = "INSERT INTO StopTime (stopID, arrivalTime, departureTime) VALUES (?, ?, ?)";
-//        try (Connection conn = DatabaseConnection.getConnection();
-//             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-//
-//            stmt.setInt(1, stoptime.getStop().getStopID());
-//            stmt.setTime(2, Time.valueOf(stoptime.getArrivalTime()));
-//            stmt.setTime(3, Time.valueOf(stoptime.getDepartureTime()));
-//            stmt.executeUpdate();
-//
-//            ResultSet rs = stmt.getGeneratedKeys();
-//            if (rs.next()) {
-//                return rs.getInt(1); // return stopTimeID
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return -1;
-//    }
+    public static boolean updateStoptime(Stoptime stoptime) {
+        String sql = "UPDATE StopTime SET arrivalTime = ?, departureTime = ? WHERE stopID = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setTime(1, Time.valueOf(stoptime.getArrivalTime()));
+            stmt.setTime(2, Time.valueOf(stoptime.getDepartureTime()));
+            stmt.setInt(3, stoptime.getStop().getStopID());
+
+            int affected = stmt.executeUpdate();
+            return affected > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+    public static boolean deleteStoptimeByStopID(int stopID) {
+        String sql = "DELETE FROM StopTime WHERE stopID = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, stopID);
+            int affectedRows = stmt.executeUpdate();
+            return affectedRows > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+    //    public static int addStoptimeAndReturnID(Stoptime stoptime) {
+    //        String sql = "INSERT INTO StopTime (stopID, arrivalTime, departureTime) VALUES (?, ?, ?)";
+    //        try (Connection conn = DatabaseConnection.getConnection();
+    //             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+    //
+    //            stmt.setInt(1, stoptime.getStop().getStopID());
+    //            stmt.setTime(2, Time.valueOf(stoptime.getArrivalTime()));
+    //            stmt.setTime(3, Time.valueOf(stoptime.getDepartureTime()));
+    //            stmt.executeUpdate();
+    //
+    //            ResultSet rs = stmt.getGeneratedKeys();
+    //            if (rs.next()) {
+    //                return rs.getInt(1); // return stopTimeID
+    //            }
+    //        } catch (SQLException e) {
+    //            e.printStackTrace();
+    //        }
+    //        return -1;
+    //    }
 
 }

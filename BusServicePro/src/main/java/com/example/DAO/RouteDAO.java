@@ -133,4 +133,72 @@ public class RouteDAO {
     }
 
 
+    public static boolean deleteRoute(int routeID) {
+        String deleteRouteSQL = "DELETE FROM Route WHERE routeID = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection()) {
+            conn.setAutoCommit(false); // bắt đầu transaction
+
+            // Bước 1: Xóa các stop liên quan đến route
+            if (!RouteStopDAO.deleteStopsFromRoute(routeID)) {
+                conn.rollback();
+                System.out.println("Xóa Route_Stop thất bại.");
+                return false;
+            }
+
+            // Bước 2: Xóa route chính
+            try (PreparedStatement stmt = conn.prepareStatement(deleteRouteSQL)) {
+                stmt.setInt(1, routeID);
+                int affectedRows = stmt.executeUpdate();
+                if (affectedRows == 0) {
+                    conn.rollback();
+                    System.out.println("Không tìm thấy route để xóa.");
+                    return false;
+                }
+            }
+
+            conn.commit();
+            System.out.println("Xóa route và stop liên quan thành công.");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean updateRoute(Route route) {
+        try (Connection conn = DatabaseConnection.getConnection()) {
+            conn.setAutoCommit(false); // bắt đầu transaction
+
+            // Bước 1: Xóa tất cả stop hiện tại của route
+            if (!RouteStopDAO.deleteStopsFromRoute(route.getRouteID())) {
+                conn.rollback();
+                System.out.println("Xóa stop cũ thất bại.");
+                return false;
+            }
+
+            // Bước 2: Thêm stop mới
+            List<Stop> stops = route.getStops();
+            for (int i = 0; i < stops.size(); i++) {
+                Stop stop = stops.get(i);
+                boolean added = RouteStopDAO.addRouteStop(route.getRouteID(), stop.getStopID(), i + 1);
+                if (!added) {
+                    conn.rollback();
+                    System.out.println("Thêm stop mới thất bại.");
+                    return false;
+                }
+            }
+
+            conn.commit();
+            System.out.println("Cập nhật route thành công.");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
 }

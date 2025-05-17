@@ -36,4 +36,11 @@ public class Stop {
         return stopName + " " + stopID;
     }
 
+    public void setStopID(int stopID) {
+        this.stopID = stopID;
+    }
+
+    public void setStopName(String stopName) {
+        this.stopName = stopName;
+    }
 }

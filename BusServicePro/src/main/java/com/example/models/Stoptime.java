@@ -19,6 +19,19 @@ public class Stoptime {
     public LocalTime getArrivalTime() { return arrivalTime; }
     public LocalTime getDepartureTime() { return departureTime; }
 
+
+    public void setArrivalTime(LocalTime arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
+    public void setDepartureTime(LocalTime departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    public void setStop(Stop stop) {
+        this.stop = stop;
+    }
+
     @Override
     public String toString() {
         return "Stoptime{" +
@@ -27,4 +40,5 @@ public class Stoptime {
                 ", departureTime=" + departureTime +
                 '}';
     }
+
 }

@@ -49,4 +49,7 @@ public class Booking {
                 ", customer=" + customer +
                 '}';
     }
+
+    // deleteBooking
+
 }

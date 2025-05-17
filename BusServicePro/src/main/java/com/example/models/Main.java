@@ -35,12 +35,11 @@ public class Main {
 //        RouteDAO.addRoute(route);
 
         Route route = RouteDAO.getRouteById(101);
-//        for(int i = 0;i< stops.size();i++) {
-//            RouteStopDAO.addRouteStop(route.getRouteID(),stops.get(i).getStopID(),i+1);
+//        for (int i = 0; i < stops.size(); i++) {
+//            RouteStopDAO.addRouteStop(route.getRouteID(), stops.get(i).getStopID(), i + 1);
 //        }
         route.setStops(RouteDAO.getStopsForRoute(route.getRouteID()));
 //        System.out.println(route);
-
 
 
 //        Bus bus = new Bus(1, "ABC-123", 2, route);
@@ -50,15 +49,15 @@ public class Main {
 //        System.out.println(bus);
 
 
-
 //        Stoptime stoptime1 = new Stoptime(StopDAO.getStopById(1), LocalTime.of(11, 0), LocalTime.of(11, 5));
 //        Stoptime stoptime2 = new Stoptime(StopDAO.getStopById(2), LocalTime.of(12, 30), LocalTime.of(12, 35));
 //        Stoptime stoptime3 = new Stoptime(StopDAO.getStopById(3), LocalTime.of(13, 0), LocalTime.of(13, 5));
 //        StoptimeDAO.addStoptime(stoptime1);
 //        StoptimeDAO.addStoptime(stoptime2);
 //        StoptimeDAO.addStoptime(stoptime3);
+//
 
-        Stoptime stoptime1= StoptimeDAO.getStoptimeByStopID(1);
+        Stoptime stoptime1 = StoptimeDAO.getStoptimeByStopID(1);
         Stoptime stoptime2 = StoptimeDAO.getStoptimeByStopID(2);
         Stoptime stoptime3 = StoptimeDAO.getStoptimeByStopID(3);
 
@@ -74,13 +73,13 @@ public class Main {
 //        TripDAO.addTrip(trip);
 
 
-      Trip trip = TripDAO.getTripWithStopTimes(1001);
+        Trip trip = TripDAO.getTripWithStopTimes(1001);
 //        System.out.println(trip);
 
 //        User user = new User(2,"nam22","123","nam","123","012424");
 //        UserDAO.register(user);
-            UserDAO.login("nam22", "123");
-            User user = UserDAO.getUserById(UserDAO.getCurrentID());
+        UserDAO.login("nam22", "123");
+        User user = UserDAO.getUserById(UserDAO.getCurrentID());
 //            System.out.println(user);
 
 
@@ -122,12 +121,11 @@ public class Main {
 //            for(Feedback feedback : feedbacks) {
 //                System.out.println(feedback);
 //            }
-        List<Feedback> feedbacks = FeedbackDAO.getAllFeedback();
-        for(Feedback feedback : feedbacks) {
-            System.out.println(feedback);
-        }
-
+//        List<Feedback> feedbacks = FeedbackDAO.getAllFeedback();
+//        for(Feedback feedback : feedbacks) {
+//            System.out.println(feedback);
+//
+    Stoptime s4 = StoptimeDAO.getStoptimeByStopID(4);
+    StoptimeDAO.deleteStoptimeByStopID(4);
     }
-
-
 }
