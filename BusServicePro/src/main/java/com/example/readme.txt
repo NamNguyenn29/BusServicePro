@@ -53,3 +53,18 @@ AddminDAO
 
 mức độ cao đến thấp : booking - trip - bus - route - stop - stopTime
 
+RouteController
+Đặt fx:controller="com.example.Controller.RouteController" ở phần đầu của file.
+
+Có ListView với fx:id="routeListView"
+
+Có nút bấm gọi onAction="#handleButtonClick"
+<AnchorPane fx:controller="com.example.Controller.RouteController"
+            xmlns:fx="http://javafx.com/fxml">
+    <children>
+        <TextField fx:id="stopIDField" layoutX="50" layoutY="20" promptText="Nhập Stop ID" />
+        <Button text="Tìm theo Stop ID" layoutX="250" layoutY="20" onAction="#handleSearchByStopID" />
+        <Button text="Hiện tất cả tuyến đường" layoutX="400" layoutY="20" onAction="#handleShowAllRoutes" />
+        <ListView fx:id="routeListView" layoutX="50" layoutY="70" prefWidth="500" prefHeight="400" />
+    </children>
+</AnchorPane>
