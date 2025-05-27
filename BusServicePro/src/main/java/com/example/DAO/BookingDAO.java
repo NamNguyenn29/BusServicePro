@@ -6,7 +6,6 @@ import java.sql.*;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class BookingDAO {
 
@@ -18,7 +17,7 @@ public class BookingDAO {
 
 
     public static boolean createBooking(Trip trip, Stop fromStop, Stop toStop, User customer) {
-        CurrentTripBookings = getBookingsByTripId(trip);
+        CurrentTripBookings = getBookingsByTripID(trip);
         if (!isValidTrip(trip, fromStop, toStop)) {
             System.out.println("Invalid trip segment.");
             return false;
@@ -118,7 +117,7 @@ public class BookingDAO {
         }
         return bookings;
     }
-    public static List<Booking> getBookingsByTripId(Trip trip) {
+    public static List<Booking> getBookingsByTripID(Trip trip) {
         List<Booking> bookings = new ArrayList<>();
         String sql = "SELECT * FROM Booking WHERE tripID = ?";
 
