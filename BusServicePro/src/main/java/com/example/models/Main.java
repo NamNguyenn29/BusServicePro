@@ -17,10 +17,11 @@ public class Main {
 //        StopDAO.addStop(s3);  ( tạo stop và add vào db)
 
 
-//        Stop s1 = StopDAO.getStopById(1);
-//        System.out.println(s1); ( lấy thử stop 1)
-//        Stop s2 = StopDAO.getStopById(2);
-//        Stop s3 = StopDAO.getStopById(3);
+        Stop s1 = StopDAO.getStopById(1);
+//        System.out.println(s1);
+//        lấy thử
+        Stop s2 = StopDAO.getStopById(2);
+        Stop s3 = StopDAO.getStopById(3);
 
 //
 
@@ -34,7 +35,7 @@ public class Main {
 //        Route route = new Route(101, stops);
 //        RouteDAO.addRoute(route);
 
-        Route route = RouteDAO.getRouteById(101);
+        Route route = RouteDAO.getRouteById(103);
 //        for (int i = 0; i < stops.size(); i++) {
 //            RouteStopDAO.addRouteStop(route.getRouteID(), stops.get(i).getStopID(), i + 1);
 //        }
@@ -42,7 +43,7 @@ public class Main {
 //        System.out.println(route);
 
 
-//        Bus bus = new Bus(1, "ABC-123", 2, route);
+//        Bus bus = new Bus(5, "ABC-890", 4, route);
 //        BusDAO.addBus(bus);
 
         Bus bus = BusDAO.getBusById(1);
@@ -55,7 +56,7 @@ public class Main {
 //        StoptimeDAO.addStoptime(stoptime1);
 //        StoptimeDAO.addStoptime(stoptime2);
 //        StoptimeDAO.addStoptime(stoptime3);
-//
+////
 
         Stoptime stoptime1 = StoptimeDAO.getStoptimeByStopID(1);
         Stoptime stoptime2 = StoptimeDAO.getStoptimeByStopID(2);
@@ -78,8 +79,8 @@ public class Main {
 
 //        User user = new User(2,"nam22","123","nam","123","012424");
 //        UserDAO.register(user);
-        UserDAO.login("nam22", "123");
-        User user = UserDAO.getUserById(UserDAO.getCurrentID());
+        User user = UserDAO.login("nam22", "123");
+
 //            System.out.println(user);
 
 
@@ -125,7 +126,16 @@ public class Main {
 //        for(Feedback feedback : feedbacks) {
 //            System.out.println(feedback);
 //
-    Stoptime s4 = StoptimeDAO.getStoptimeByStopID(4);
-    StoptimeDAO.deleteStoptimeByStopID(4);
+//    Stoptime s4 = StoptimeDAO.getStoptimeByStopID(4);
+//    StoptimeDAO.deleteStoptimeByStopID(4);
+//        User user2 = new User("hao11","1234","hao","hao@","1234");
+//        UserDAO.register(user2);
+//        System.out.println(UserDAO.login("hao11","1234"));
+
+
+//        Admin admin = new Admin("TanNam","457");
+//        AdminDAO.register(admin);
+        System.out.println(AdminDAO.login("TanNam", "457"));
+
     }
 }

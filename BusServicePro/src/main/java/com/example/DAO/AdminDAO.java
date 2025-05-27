@@ -10,15 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AdminDAO {
-    private static int currentAdminID;
 
-    public static int getCurrentAdminID() {
-        return currentAdminID;
-    }
 
-    public static boolean login(String username, String password) {
+
+    public static Admin login(String username, String password) {
         String hashedPassword = PasswordUtil.hashPassword(password);
-        String sql = "SELECT * FROM Admin WHERE username=? AND adminPassword=?";
+        String sql = "SELECT * FROM Admin WHERE adminUsername=? AND adminPassword=?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -27,28 +24,27 @@ public class AdminDAO {
 
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                currentAdminID = rs.getInt("adminID");
+                int currentAdminID = rs.getInt("adminID");
                 System.out.println("Đăng nhập Admin thành công. ID: " + currentAdminID);
-                return true;
+                return getAdminByID(currentAdminID);
             }
 
             System.out.println("Đăng nhập Admin thất bại.");
-            return false;
+            return null;
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 
     public static boolean register(Admin admin) {
-        String sql = "INSERT INTO Admin (adminID, username, adminPassword) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO Admin ( adminUsername, adminPassword) VALUES (?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, admin.getAdminID());
-            stmt.setString(2, admin.getUsername());
-            stmt.setString(3, PasswordUtil.hashPassword(admin.getPassword()));
+            stmt.setString(1, admin.getUsername());
+            stmt.setString(2, PasswordUtil.hashPassword(admin.getPassword()));
 
             stmt.executeUpdate();
             System.out.println("Đăng ký Admin thành công.");
@@ -75,7 +71,7 @@ public class AdminDAO {
             if (rs.next()) {
                 return new Admin(
                         rs.getInt("adminID"),
-                        rs.getString("username"),
+                        rs.getString("adminUsername"),
                         rs.getString("adminPassword")
                 );
             }

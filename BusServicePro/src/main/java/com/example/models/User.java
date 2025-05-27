@@ -9,7 +9,7 @@ public class User {
         this.username = username;
 
     }
-
+//    load user
     public User(int userID, String username, String password, String name, String email, String phone) {
         this.userID = userID;
         this.username = username;
@@ -18,6 +18,18 @@ public class User {
         this.email = email;
         this.phone = phone;
     }
+
+    // tao user
+   public User(String username, String password, String name, String email, String phone) {
+        this.userID = userID;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
+
+
 
     public int getUserID() {
         return userID;

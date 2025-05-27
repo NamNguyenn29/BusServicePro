@@ -12,6 +12,12 @@ public class Admin {
         this.password = password;
     }
 
+    public Admin(String username, String password) {
+        this.adminID = adminID;
+        this.username = username;
+        this.password = password;
+    }
+
     public int getAdminID() {
         return adminID;
     }
@@ -24,7 +30,18 @@ public class Admin {
     public List<Feedback> viewFeedback() {
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "adminID=" + adminID +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
+
+
 
 
 // add min có thể addbus
