@@ -146,14 +146,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/signup.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/signin.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
 //        scene.getStylesheets().add(getClass().getResource("/view/.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setTitle("Sign In");
-//        primaryStage.setMinWidth(500);
-//        primaryStage.setMinHeight(300);
         primaryStage.show();
     }
 }
