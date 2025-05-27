@@ -7,7 +7,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.usermenu">
    <children>
       <AnchorPane prefHeight="760.0" prefWidth="326.0">
@@ -22,13 +21,34 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Button layoutX="12.0" layoutY="290.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="Booking Trip" />
-            <Button layoutX="12.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="Search Trip" />
-            <Button layoutX="12.0" layoutY="424.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="Search Route" />
-            <Button layoutX="12.0" layoutY="494.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="Search Route" />
-            <Button layoutX="12.0" layoutY="564.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="Search Bustop" />
-            <Button layoutX="12.0" layoutY="632.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="Give Feedback" />
-            <Button layoutX="12.0" layoutY="700.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="View FeedBack" />
+            <Button layoutX="12.0" layoutY="290.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="Booking Trip">
+               <font>
+                  <Font name="Tahoma" size="12.0" />
+               </font></Button>
+            <Button layoutX="12.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="Search Trip">
+               <font>
+                  <Font name="Tahoma" size="12.0" />
+               </font></Button>
+            <Button layoutX="12.0" layoutY="424.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="Search Route">
+               <font>
+                  <Font name="Tahoma" size="12.0" />
+               </font></Button>
+            <Button layoutX="12.0" layoutY="494.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="Search Route">
+               <font>
+                  <Font name="Tahoma" size="12.0" />
+               </font></Button>
+            <Button layoutX="12.0" layoutY="564.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="Search Bustop">
+               <font>
+                  <Font name="Tahoma" size="12.0" />
+               </font></Button>
+            <Button layoutX="12.0" layoutY="632.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="Give Feedback">
+               <font>
+                  <Font name="Tahoma" size="12.0" />
+               </font></Button>
+            <Button layoutX="12.0" layoutY="700.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="View FeedBack">
+               <font>
+                  <Font name="Tahoma" size="12.0" />
+               </font></Button>
             <ImageView fitHeight="120.0" fitWidth="114.0" layoutX="106.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/avatar.jpg" />
