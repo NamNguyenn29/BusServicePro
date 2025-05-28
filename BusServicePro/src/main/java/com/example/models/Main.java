@@ -149,7 +149,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/signin.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
-//        scene.getStylesheets().add(getClass().getResource("/view/.css").toExternalForm());
+//        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setTitle("Sign In");
         primaryStage.show();

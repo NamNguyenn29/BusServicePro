@@ -1,29 +1,21 @@
 package com.example.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class signup {
+public class forgotPassword {
     @FXML
-    private Button loginButton;
+    private AnchorPane parentAnchorPane;
 
     @FXML
-    private void switchToLoginForm(ActionEvent event) throws IOException {
-        Parent registerRoot = FXMLLoader.load(getClass().getResource("/view/signin.fxml"));
-        Scene registerScene = new Scene(registerRoot);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(registerScene);
-        stage.show();
+    public void setContent(AnchorPane parentAnchorPane) {
+        parentAnchorPane.getChildren().setAll(parentAnchorPane.getChildren());
     }
 
     @FXML
@@ -31,9 +23,6 @@ public class signup {
 
     @FXML
     private CheckBox showPassword;
-
-    @FXML
-    private AnchorPane innerAnchorPane;
 
     private TextField textField;
 
@@ -54,14 +43,6 @@ public class signup {
 
     @FXML
     private void initialize() {
-        loginButton.setOnAction(e -> {
-            try {
-                switchToLoginForm(e);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
-
         textField = new TextField();
         textField.setVisible(false);
         textField.setManaged(false);
@@ -71,12 +52,11 @@ public class signup {
         textField.setStyle("-fx-font-family: 'Tahoma'; -fx-font-size: 12px;");
 
         AnchorPane.setTopAnchor(textField, AnchorPane.getTopAnchor(passwordField));
-//        AnchorPane.setBottomAnchor(textField, AnchorPane.getBottomAnchor(passwordField));
         AnchorPane.setLeftAnchor(textField, AnchorPane.getLeftAnchor(passwordField));
         AnchorPane.setRightAnchor(textField, AnchorPane.getRightAnchor(passwordField));
 
         textField.textProperty().bindBidirectional(passwordField.textProperty());
-        innerAnchorPane.getChildren().add(textField);
+        parentAnchorPane.getChildren().add(textField);
         showPassword.setOnAction(e -> togglePasswordVisibility());
     }
 }
