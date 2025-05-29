@@ -3,7 +3,6 @@ package com.example.models;
 import java.time.LocalTime;
 
 public class Booking {
-    static  int count = 1;
     private int bookingID;
     private Trip trip;
     private Stop fromStop;
@@ -21,7 +20,6 @@ public class Booking {
         this.customer = customer;
     }
     public Booking( Trip trip, Stop fromStop, Stop toStop,LocalTime startTime, User customer) {
-        this.bookingID = count++;
         this.trip = trip;
         this.fromStop = fromStop;
         this.toStop = toStop;

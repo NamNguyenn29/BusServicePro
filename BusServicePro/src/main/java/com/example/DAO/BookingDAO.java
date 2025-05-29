@@ -67,17 +67,16 @@ public class BookingDAO {
     }
 
     private static boolean saveBookingToDatabase(Booking booking) {
-        String sql = "INSERT INTO Booking (id, tripID, fromStopID, toStopID, userID, startTime) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Booking ( tripID, fromStopID, toStopID, userID, startTime) VALUES ( ?, ?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, booking.getBookingID());
-            stmt.setInt(2, booking.getTrip().getTripID());
-            stmt.setInt(3, booking.getFromStop().getStopID());
-            stmt.setInt(4, booking.getToStop().getStopID());
-            stmt.setInt(5, booking.getCustomer().getUserID());
-            stmt.setTime(6, Time.valueOf(booking.getStartTime()));
+            stmt.setInt(1, booking.getTrip().getTripID());
+            stmt.setInt(2, booking.getFromStop().getStopID());
+            stmt.setInt(3, booking.getToStop().getStopID());
+            stmt.setInt(4, booking.getCustomer().getUserID());
+            stmt.setTime(5, Time.valueOf(booking.getStartTime()));
             stmt.executeUpdate();
             System.out.println("Booking saved to database.");
             return true;
