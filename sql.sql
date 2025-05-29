@@ -8,13 +8,15 @@ CREATE TABLE Admin (
 );
 
 CREATE TABLE User (
-    userID INT PRIMARY KEY,
+    userID INT   PRIMARY KEY ,
     username VARCHAR(50) NOT NULL,
     userPassword VARCHAR(100) NOT NULL,
     fullName VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
     phone VARCHAR(20)
 );
+
+
 
 CREATE TABLE Feedback (
     feedbackID INT PRIMARY KEY,

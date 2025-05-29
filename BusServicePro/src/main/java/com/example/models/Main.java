@@ -135,7 +135,10 @@ public class Main {
 
 //        Admin admin = new Admin("TanNam","457");
 //        AdminDAO.register(admin);
-        System.out.println(AdminDAO.login("TanNam", "457"));
-
+//        System.out.println(AdminDAO.login("TanNam", "457"));
+        List<Booking> bookings = BookingDAO.getAllBookings();
+        for (Booking booking : bookings) {
+            System.out.println(booking);
+        }
     }
 }
