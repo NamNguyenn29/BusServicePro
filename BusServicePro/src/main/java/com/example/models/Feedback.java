@@ -12,6 +12,11 @@ public class Feedback {
         this.message = message;
         this.submitDate = submitDate;
         this.userID = userID;
+    }  public Feedback( String message, LocalDate submitDate, int userID) {
+        this.feedbackId = feedbackId;
+        this.message = message;
+        this.submitDate = submitDate;
+        this.userID = userID;
     }
     public int getFeedbackId() { return feedbackId; }
     public String getMessage() { return message; }
