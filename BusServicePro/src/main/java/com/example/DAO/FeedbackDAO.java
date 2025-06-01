@@ -11,13 +11,12 @@ import java.util.List;
 public class FeedbackDAO {
 
     public static boolean addFeedback(Feedback feedback) {
-        String sql = "INSERT INTO Feedback (feedbackID, message, submitDate, userID) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Feedback ( message, submitDate, userID) VALUES ( ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, feedback.getFeedbackId());
-            stmt.setString(2, feedback.getMessage());
-            stmt.setDate(3, Date.valueOf(feedback.getSubmitDate()));
-            stmt.setInt(4, feedback.getUserID());
+            stmt.setString(1, feedback.getMessage());
+            stmt.setDate(2, Date.valueOf(feedback.getSubmitDate()));
+            stmt.setInt(3, feedback.getUserID());
             stmt.executeUpdate();
             System.out.println("them feedback thanh cong");
             return true;
