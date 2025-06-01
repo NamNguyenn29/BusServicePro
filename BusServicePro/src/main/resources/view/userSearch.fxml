@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<AnchorPane prefHeight="768.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.userSearch">
+   <children>
+      <ImageView fitHeight="768.0" fitWidth="768.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/menu2.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#414a4c" height="768.0" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="768.0" />
+      <AnchorPane prefHeight="0.0" style="-fx-background-color: FFFAFA; -fx-background-radius: 25px;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
+   </children>
+</AnchorPane>
