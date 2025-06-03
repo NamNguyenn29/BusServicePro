@@ -62,7 +62,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                 </Button>
-                <RadioButton mnemonicParsing="false" text="User" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="200.0">
+                <RadioButton fx:id="userRadioBtn" mnemonicParsing="false" text="User" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="200.0">
                     <font>
                         <Font name="Tahoma" size="15.0" />
                     </font>
@@ -70,7 +70,7 @@
                         <ToggleGroup fx:id="accountType" />
                     </toggleGroup>
                 </RadioButton>
-                <RadioButton mnemonicParsing="false" text="Admin" toggleGroup="$accountType" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="200.0">
+                <RadioButton fx:id="adminRadioBtn" mnemonicParsing="false" text="Admin" toggleGroup="$accountType" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="200.0">
                     <font>
                         <Font name="Tahoma" size="15.0" />
                     </font>

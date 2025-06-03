@@ -86,7 +86,7 @@ public class signin {
     private Button signinBtn;
 
     @FXML
-    private void getSignedIn( ActionEvent event) throws IOException {
+    private void getSignedIn(ActionEvent event) throws IOException {
         Stage stage = (Stage) signinBtn.getScene().getWindow();
         stage.close();
 
@@ -97,6 +97,24 @@ public class signin {
         newStage.setTitle("User Menu");
         newStage.show();
     }
+
+    @FXML
+    private void getSignedInAsAdmin(ActionEvent event) throws IOException {
+        Stage stage = (Stage) signinBtn.getScene().getWindow();
+        stage.close();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/adminMenu.fxml"));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.setTitle("Admin Menu");
+        newStage.show();
+    }
+
+    @FXML
+    private RadioButton userRadioBtn;
+    @FXML
+    private RadioButton adminRadioBtn;
 
     @FXML
     private void initialize() {
@@ -132,9 +150,14 @@ public class signin {
             }
         });
 
+        userRadioBtn.setSelected(true);
         signinBtn.setOnAction(e -> {
             try {
-                getSignedIn(e);
+                if (userRadioBtn.isSelected()) {
+                    getSignedIn(e);
+                } else if (adminRadioBtn.isSelected()) {
+                    getSignedInAsAdmin(e);
+                }
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
