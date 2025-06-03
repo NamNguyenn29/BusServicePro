@@ -28,25 +28,25 @@ public class userSearch {
         parentHBox.getChildren().clear();
 
         if ("Search by Trip".equals(searchBox.getValue())) {
-            ComboBox tripComboBox = new ComboBox();
-            tripComboBox.setId("tripBox");
-            tripComboBox.setPrefWidth(150);
-            parentHBox.getChildren().add(tripComboBox);
+            ComboBox tripComboBox1 = new ComboBox();
+            ComboBox tripComboBox2 = new ComboBox();
+            tripComboBox1.setId("tripBox1");
+            tripComboBox1.setPrefWidth(150);
+            tripComboBox2.setId("tripBox2");
+            tripComboBox2.setPrefWidth(150);
+            tripComboBox2.setTranslateX(50);
+            parentHBox.getChildren().add(tripComboBox1);
+            parentHBox.getChildren().add(tripComboBox2);
         } else if ("Search by Route".equals(searchBox.getValue())) {
             ComboBox routeComboBox = new ComboBox();
             routeComboBox.setId("routeBox");
             routeComboBox.setPrefWidth(150);
             parentHBox.getChildren().add(routeComboBox);
         } else if ("Search by Stop".equals(searchBox.getValue())) {
-            ComboBox stopComboBox1 = new ComboBox();
-            ComboBox stopComboBox2 = new ComboBox();
-            stopComboBox1.setId("stopBox1");
-            stopComboBox1.setPrefWidth(150);
-            stopComboBox2.setId("stopBox2");
-            stopComboBox2.setPrefWidth(150);
-            stopComboBox2.setTranslateX(50);
-            parentHBox.getChildren().add(stopComboBox1);
-            parentHBox.getChildren().add(stopComboBox2);
+            ComboBox stopComboBox = new ComboBox();
+            stopComboBox.setId("stopBox");
+            stopComboBox.setPrefWidth(150);
+            parentHBox.getChildren().add(stopComboBox);
         }
     }
 
