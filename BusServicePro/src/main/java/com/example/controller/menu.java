@@ -108,6 +108,27 @@ public class menu {
     }
 
     @FXML
+    private Button searchBtn;
+
+    @FXML
+    private void switchToSearchForm(ActionEvent event) throws IOException {
+        URL fxmlLocation = getClass().getResource("/view/userSearch.fxml");
+        FXMLLoader loader = new FXMLLoader(fxmlLocation);
+        Parent searchRoot = loader.load();
+
+        userSearch userSearchController = loader.getController();
+
+        AnchorPane newAnchorPane = new AnchorPane();
+        List<Node> childrenCopy = new ArrayList<>(parentAnchorPane.getChildren());
+        parentAnchorPane.getChildren().clear();
+        newAnchorPane.getChildren().addAll(childrenCopy);
+
+        userSearchController.setContent(newAnchorPane);
+
+        parentAnchorPane.getChildren().setAll(((AnchorPane) searchRoot).getChildren());
+    }
+
+    @FXML
     private void initialize() {
         signoutBtn.setOnAction(e -> {
             try {
@@ -136,6 +157,14 @@ public class menu {
         profileBtn.setOnAction(e -> {
             try {
                 switchToProfile(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        searchBtn.setOnAction(e -> {
+            try {
+                switchToSearchForm(e);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
