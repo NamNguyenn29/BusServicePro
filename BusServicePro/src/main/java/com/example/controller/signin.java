@@ -65,7 +65,6 @@ public class signin {
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/forgotPassword.fxml"));
 //        Parent forgotPasswordRoot = loader.load();
         URL fxmlLocation = getClass().getResource("/view/forgotPassword.fxml");
-        System.out.println("Loaded FXML URL: " + fxmlLocation);
 
         FXMLLoader loader = new FXMLLoader(fxmlLocation);
         Parent forgotPasswordRoot = loader.load();
@@ -80,9 +79,42 @@ public class signin {
 
         forgotPasswordController.setContent(newPane);
 
-        innerAnchorPane.getChildren().clear();
         innerAnchorPane.getChildren().setAll(((AnchorPane) forgotPasswordRoot).getChildren());
     }
+
+    @FXML
+    private Button signinBtn;
+
+    @FXML
+    private void getSignedIn(ActionEvent event) throws IOException {
+        Stage stage = (Stage) signinBtn.getScene().getWindow();
+        stage.close();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu.fxml"));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.setTitle("User Menu");
+        newStage.show();
+    }
+
+    @FXML
+    private void getSignedInAsAdmin(ActionEvent event) throws IOException {
+        Stage stage = (Stage) signinBtn.getScene().getWindow();
+        stage.close();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/adminMenu.fxml"));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.setTitle("Admin Menu");
+        newStage.show();
+    }
+
+    @FXML
+    private RadioButton userRadioBtn;
+    @FXML
+    private RadioButton adminRadioBtn;
 
     @FXML
     private void initialize() {
@@ -113,6 +145,19 @@ public class signin {
         forgotPassword.setOnAction(e -> {
             try {
                 switchToForgetPassword(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        userRadioBtn.setSelected(true);
+        signinBtn.setOnAction(e -> {
+            try {
+                if (userRadioBtn.isSelected()) {
+                    getSignedIn(e);
+                } else if (adminRadioBtn.isSelected()) {
+                    getSignedInAsAdmin(e);
+                }
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
