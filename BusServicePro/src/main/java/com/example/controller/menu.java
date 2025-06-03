@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -37,28 +39,6 @@ public class menu {
     private AnchorPane parentAnchorPane;
 
     @FXML
-    private Button sendFeedbackBtn;
-
-    @FXML
-    private void switchToSendFeedbackForm(ActionEvent event) throws IOException {
-        URL fxmlLocation = getClass().getResource("/view/userFeedback.fxml");
-        FXMLLoader loader = new FXMLLoader(fxmlLocation);
-        Parent sendFeedbackRoot = loader.load();
-
-        userFeedback userFeedbackController = loader.getController();
-
-        AnchorPane newAnchorPane = new AnchorPane();
-        List<Node> childrenCopy = new ArrayList<>(parentAnchorPane.getChildren());
-        parentAnchorPane.getChildren().clear();
-        newAnchorPane.getChildren().addAll(childrenCopy);
-
-        userFeedbackController.setContent(newAnchorPane);
-
-        parentAnchorPane.getChildren().clear();
-        parentAnchorPane.getChildren().setAll(((AnchorPane) sendFeedbackRoot).getChildren());
-    }
-
-    @FXML
     private Button bookingBtn;
 
     @FXML
@@ -76,7 +56,6 @@ public class menu {
 
         menuController.setContent(newAnchorPane);
 
-        parentAnchorPane.getChildren().clear();
         StackPane bookingRootPane = (StackPane) bookingRoot;
         AnchorPane anchorPane = (AnchorPane) bookingRootPane.lookup("#parentAnchorPane");
         parentAnchorPane.getChildren().setAll(anchorPane.getChildren());
@@ -87,10 +66,60 @@ public class menu {
     }
 
     @FXML
+    private Button sendFeedbackBtn;
+
+    @FXML
+    private void switchToSendFeedbackForm(ActionEvent event) throws IOException {
+        URL fxmlLocation = getClass().getResource("/view/userFeedback.fxml");
+        FXMLLoader loader = new FXMLLoader(fxmlLocation);
+        Parent sendFeedbackRoot = loader.load();
+
+        userFeedback userFeedbackController = loader.getController();
+
+        AnchorPane newAnchorPane = new AnchorPane();
+        List<Node> childrenCopy = new ArrayList<>(parentAnchorPane.getChildren());
+        parentAnchorPane.getChildren().clear();
+        newAnchorPane.getChildren().addAll(childrenCopy);
+
+        userFeedbackController.setContent(newAnchorPane);
+
+        parentAnchorPane.getChildren().setAll(((AnchorPane) sendFeedbackRoot).getChildren());
+    }
+
+    @FXML
+    private Button profileBtn;
+
+    @FXML
+    private void switchToProfile(ActionEvent event) throws IOException {
+        URL fxmlLocation = getClass().getResource("/view/userProfile.fxml");
+        FXMLLoader loader = new FXMLLoader(fxmlLocation);
+        Parent profileRoot = loader.load();
+
+        userProfile userProfileController = loader.getController();
+
+        AnchorPane newAnchorPane = new AnchorPane();
+        List<Node> childrenCopy = new ArrayList<>(parentAnchorPane.getChildren());
+        parentAnchorPane.getChildren().clear();
+        newAnchorPane.getChildren().addAll(childrenCopy);
+
+        userProfileController.setContent(newAnchorPane);
+
+        parentAnchorPane.getChildren().setAll(((AnchorPane) profileRoot).getChildren());
+    }
+
+    @FXML
     private void initialize() {
         signoutBtn.setOnAction(e -> {
             try {
                 getSignedOut(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        bookingBtn.setOnAction(e -> {
+            try {
+                switchToBookingForm(e);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -104,9 +133,9 @@ public class menu {
             }
         });
 
-        bookingBtn.setOnAction(e -> {
+        profileBtn.setOnAction(e -> {
             try {
-                switchToBookingForm(e);
+                switchToProfile(e);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

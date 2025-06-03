@@ -28,7 +28,8 @@
             <left>
                 <AnchorPane prefHeight="768.0" prefWidth="256.0" style="-fx-border-color: FFFAFA; -fx-background-color: 000000;" BorderPane.alignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="35.0" style="-fx-background-color: #00C5FF; -fx-cursor: hand;" text="Profile" textAlignment="CENTER" textFill="SNOW" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0">
+                        <Button fx:id="profileBtn" onAction="#switchToProfile" mnemonicParsing="false" prefHeight="35.0"
+                                style="-fx-background-color: #00C5FF; -fx-cursor: hand;" text="Profile" textAlignment="CENTER" textFill="SNOW" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0">
                             <font>
                                 <Font name="Tahoma" size="17.0" />
                             </font>
@@ -80,7 +81,7 @@
                               <Font name="Tahoma" size="50.0" />
                            </font>
                            <StackPane.margin>
-                              <Insets bottom="100.0" />
+                              <Insets bottom="75.0" />
                            </StackPane.margin>
                         </Text>
                         <HBox prefHeight="100.0">

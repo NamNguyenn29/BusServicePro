@@ -79,7 +79,6 @@ public class signin {
 
         forgotPasswordController.setContent(newPane);
 
-        innerAnchorPane.getChildren().clear();
         innerAnchorPane.getChildren().setAll(((AnchorPane) forgotPasswordRoot).getChildren());
     }
 

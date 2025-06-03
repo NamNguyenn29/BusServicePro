@@ -30,7 +30,7 @@
                   <Font name="Tahoma" size="17.0" />
                </font>
             </Text>
-            <TextArea fx:id="feedback" layoutX="48.0" layoutY="127.0" prefHeight="250.0" promptText="What do you want to tell us?" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0">
+            <TextArea fx:id="feedback" layoutX="48.0" layoutY="127.0" prefHeight="250.0" promptText="What do you want to tell us?" wrapText="true" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0">
                <font>
                   <Font name="Tahoma" size="12.0" />
                </font>
