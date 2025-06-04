@@ -95,8 +95,8 @@ public class signin {
         innerAnchorPane.getChildren().setAll(((AnchorPane) forgotPasswordRoot).getChildren());
     }
 
-    @FXML
-    private Button signinBtn;
+
+
 
     @FXML
     private void getSignedIn(ActionEvent event) throws IOException {
@@ -165,7 +165,8 @@ public class signin {
                 throw new RuntimeException(ex);
             }
         });
-<<<<<<< HEAD
+
+        userRd.setSelected(true);
         signinBtn.setOnAction(e -> {
             String username = usernameLogin.getText();
             String password = passwordField.getText();
@@ -191,7 +192,6 @@ public class signin {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
-=======
 
         userRadioBtn.setSelected(true);
         signinBtn.setOnAction(e -> {
@@ -205,6 +205,6 @@ public class signin {
                 throw new RuntimeException(ex);
             }
         });
->>>>>>> origin/Nguyen-Phat-Tai
+
     }
 }

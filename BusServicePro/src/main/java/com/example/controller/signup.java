@@ -72,9 +72,6 @@ public class signup {
     }
 
     @FXML
-    private Button signupBtn;
-
-    @FXML
     private void getSignedUp(ActionEvent event) throws IOException {
         Stage stage = (Stage) signupBtn.getScene().getWindow();
         stage.close();
@@ -112,7 +109,7 @@ public class signup {
         textField.textProperty().bindBidirectional(passwordField.textProperty());
         innerAnchorPane.getChildren().add(textField);
         showPassword.setOnAction(e -> togglePasswordVisibility());
-<<<<<<< HEAD
+
         signupBtn.setOnAction(e -> handleSignup());
 
     }
@@ -144,7 +141,6 @@ public class signup {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
-=======
 
         signupBtn.setOnAction(e -> {
             try {
@@ -153,6 +149,5 @@ public class signup {
                 throw new RuntimeException(ex);
             }
         });
->>>>>>> origin/Nguyen-Phat-Tai
     }
 }
