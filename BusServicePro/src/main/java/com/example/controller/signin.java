@@ -112,9 +112,9 @@ public class signin {
     }
 
     @FXML
-    private RadioButton userRadioBtn;
+    private RadioButton userRd;
     @FXML
-    private RadioButton adminRadioBtn;
+    private RadioButton adminRd;
 
     @FXML
     private void initialize() {
@@ -150,12 +150,12 @@ public class signin {
             }
         });
 
-        userRadioBtn.setSelected(true);
+        userRd.setSelected(true);
         signinBtn.setOnAction(e -> {
             try {
-                if (userRadioBtn.isSelected()) {
+                if (userRd.isSelected()) {
                     getSignedIn(e);
-                } else if (adminRadioBtn.isSelected()) {
+                } else if (adminRd.isSelected()) {
                     getSignedInAsAdmin(e);
                 }
             } catch (IOException ex) {

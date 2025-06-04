@@ -41,7 +41,7 @@
                   <Font name="Tahoma" size="12.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="nameField" prefHeight="35.0" prefWidth="320.0" promptText="Your Name" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="325.0">
+            <TextField fx:id="yourName" prefHeight="35.0" prefWidth="320.0" promptText="Your Name" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="325.0">
                <font>
                   <Font name="Tahoma" size="12.0" />
                </font>
