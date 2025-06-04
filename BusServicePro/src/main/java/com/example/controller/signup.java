@@ -19,7 +19,7 @@ public class signup {
     @FXML
     private Button loginButton;
     @FXML
-    private Button signupButton;
+    private Button signupBtn;
 
     @FXML
     private void switchToLoginForm(ActionEvent event) throws IOException {
@@ -97,7 +97,7 @@ public class signup {
         textField.textProperty().bindBidirectional(passwordField.textProperty());
         innerAnchorPane.getChildren().add(textField);
         showPassword.setOnAction(e -> togglePasswordVisibility());
-        signupButton.setOnAction(e -> handleSignup());
+        signupBtn.setOnAction(e -> handleSignup());
 
     }
     private void handleSignup() {
