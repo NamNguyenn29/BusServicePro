@@ -72,6 +72,22 @@ public class signup {
     }
 
     @FXML
+    private Button signupBtn;
+
+    @FXML
+    private void getSignedUp(ActionEvent event) throws IOException {
+        Stage stage = (Stage) signupBtn.getScene().getWindow();
+        stage.close();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu.fxml"));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.setTitle("User Menu");
+        newStage.show();
+    }
+
+    @FXML
     private void initialize() {
         loginButton.setOnAction(e -> {
             try {
@@ -90,13 +106,13 @@ public class signup {
         textField.setStyle("-fx-font-family: 'Tahoma'; -fx-font-size: 12px;");
 
         AnchorPane.setTopAnchor(textField, AnchorPane.getTopAnchor(passwordField));
-//        AnchorPane.setBottomAnchor(textField, AnchorPane.getBottomAnchor(passwordField));
         AnchorPane.setLeftAnchor(textField, AnchorPane.getLeftAnchor(passwordField));
         AnchorPane.setRightAnchor(textField, AnchorPane.getRightAnchor(passwordField));
 
         textField.textProperty().bindBidirectional(passwordField.textProperty());
         innerAnchorPane.getChildren().add(textField);
         showPassword.setOnAction(e -> togglePasswordVisibility());
+<<<<<<< HEAD
         signupBtn.setOnAction(e -> handleSignup());
 
     }
@@ -128,5 +144,15 @@ public class signup {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+=======
+
+        signupBtn.setOnAction(e -> {
+            try {
+                getSignedUp(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+>>>>>>> origin/Nguyen-Phat-Tai
     }
 }
