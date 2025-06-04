@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.models.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -16,11 +17,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import com.example.DAO.UserDAO;
+import com.example.models.User;
 
 public class signin {
 
     @FXML
     private Button registerButton;
+    @FXML
+    private Button signinBtn;
 
     @FXML
     private void switchtoRegisterForm(ActionEvent event) throws IOException {
@@ -39,10 +44,18 @@ public class signin {
 
     @FXML
     private AnchorPane innerAnchorPane;
+    @FXML
+    private RadioButton userRd;
+    @FXML
+    private TextField usernameLogin;
+
+    @FXML
+    private RadioButton adminRd;
 
     private TextField textField;
 
     @FXML
+
     private void togglePasswordVisibility() {
         if (showPassword.isSelected()) {
             textField.setVisible(true);
@@ -86,13 +99,7 @@ public class signin {
 
     @FXML
     private void initialize() {
-        registerButton.setOnAction(e -> {
-            try {
-                switchtoRegisterForm(e);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
+
 
         textField = new TextField();
         textField.setVisible(false);
@@ -110,6 +117,15 @@ public class signin {
         innerAnchorPane.getChildren().add(textField);
         showPassword.setOnAction(e -> togglePasswordVisibility());
 
+        registerButton.setOnAction(actionEvent -> {
+            try {
+                switchtoRegisterForm(actionEvent);
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        });
+
         forgotPassword.setOnAction(e -> {
             try {
                 switchToForgetPassword(e);
@@ -117,5 +133,30 @@ public class signin {
                 throw new RuntimeException(ex);
             }
         });
+        signinBtn.setOnAction(e -> {
+            String username = usernameLogin.getText();
+            String password = passwordField.getText();
+            if(userRd.isSelected()) {
+                if(UserDAO.login(username,password)==null){
+                    showAlert(Alert.AlertType.ERROR, "Error", "Tên người dùng hoặc mật mã không đúng");
+                }else{
+                    showAlert(Alert.AlertType.INFORMATION, "Info", "Đăng nhập thành công");
+                }
+            } else if(adminRd.isSelected()) {
+                if(UserDAO.login(username,password)==null){
+                    showAlert(Alert.AlertType.ERROR, "Error", "Tên người dùng hoặc mật mã không đúng");
+                }else{
+                    showAlert(Alert.AlertType.INFORMATION, "Info", "Đăng nhập thành công");
+                }
+            }
+        });
+
+    }
+    private void showAlert(Alert.AlertType type, String title, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

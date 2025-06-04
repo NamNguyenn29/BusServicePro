@@ -24,7 +24,7 @@
                   <Font name="Tahoma" size="25.0" />
                </font>
             </Text>
-            <TextField prefHeight="35.0" prefWidth="320.0" promptText="User Name" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="200.0">
+            <TextField fx:id="usernameField" prefHeight="35.0" prefWidth="320.0" promptText="User Name" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="200.0">
                <font>
                   <Font name="Tahoma" size="12.0" />
                </font>
@@ -40,7 +40,7 @@
                   <Font name="Tahoma" size="12.0" />
                </font>
             </PasswordField>
-            <TextField prefHeight="35.0" prefWidth="320.0" promptText="Your Name" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="325.0">
+            <TextField fx:id="yourName" prefHeight="35.0" prefWidth="320.0" promptText="Your Name" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="325.0">
                <font>
                   <Font name="Tahoma" size="12.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                </padding>
             </TextField>
-            <TextField prefHeight="35.0" prefWidth="320.0" promptText="Your Email" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="375.0">
+            <TextField fx:id="emailField" prefHeight="35.0" prefWidth="320.0" promptText="Your Email" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="375.0">
                <font>
                   <Font name="Tahoma" size="12.0" />
                </font>
@@ -56,7 +56,7 @@
                   <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                </padding>
             </TextField>
-            <TextField prefHeight="35.0" prefWidth="320.0" promptText="Your Phone" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="425.0">
+            <TextField fx:id="phoneField" prefHeight="35.0" prefWidth="320.0" promptText="Your Phone" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="425.0">
                <font>
                   <Font name="Tahoma" size="12.0" />
                </font>
@@ -64,7 +64,7 @@
                   <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                </padding>
             </TextField>
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="320.0" text="Sign Up" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="500.0">
+            <Button fx:id="signupButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="320.0" text="Sign Up" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="500.0">
                <font>
                   <Font name="Tahoma" size="12.0" />
                </font>

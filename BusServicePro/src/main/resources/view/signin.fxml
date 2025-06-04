@@ -25,7 +25,7 @@
     <right>
         <AnchorPane fx:id="innerAnchorPane" prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
             <children>
-                <TextField prefHeight="35.0" prefWidth="320.0" promptText="User Name" AnchorPane.leftAnchor="40.0"
+                <TextField fx:id="usernameLogin" prefHeight="35.0" prefWidth="320.0" promptText="User Name" AnchorPane.leftAnchor="40.0"
                            AnchorPane.topAnchor="250.0">
                     <font>
                         <Font name="Tahoma" size="12.0"/>
@@ -61,13 +61,13 @@
                         <Font name="Tahoma" size="12.0"/>
                     </font>
                 </Hyperlink>
-                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="320.0" text="Sign In" textAlignment="CENTER"
+                <Button fx:id="signinBtn" mnemonicParsing="false" prefHeight="35.0" prefWidth="320.0" text="Sign In" textAlignment="CENTER"
                         AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="400.0">
                     <font>
                         <Font name="Tahoma" size="12.0"/>
                     </font>
                 </Button>
-                <RadioButton mnemonicParsing="false" text="User" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="200.0">
+                <RadioButton fx:id="userRd" mnemonicParsing="false" text="User" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="200.0">
                     <font>
                         <Font name="Tahoma" size="15.0"/>
                     </font>
@@ -75,7 +75,7 @@
                         <ToggleGroup fx:id="accountType"/>
                     </toggleGroup>
                 </RadioButton>
-                <RadioButton mnemonicParsing="false" text="Admin" toggleGroup="$accountType" AnchorPane.rightAnchor="75.0"
+                <RadioButton fx:id="adminRd" mnemonicParsing="false" text="Admin" toggleGroup="$accountType" AnchorPane.rightAnchor="75.0"
                              AnchorPane.topAnchor="200.0">
                     <font>
                         <Font name="Tahoma" size="15.0"/>
@@ -124,7 +124,7 @@
             </children>
         </StackPane>
     </left>
-<!--    <stylesheets>-->
-<!--        <URL value="@../style.css"/>-->
-<!--    </stylesheets>-->
+    <!--    <stylesheets>-->
+    <!--        <URL value="@../style.css"/>-->
+    <!--    </stylesheets>-->
 </BorderPane>

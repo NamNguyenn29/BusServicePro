@@ -10,12 +10,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import com.example.DAO.UserDAO;
+import com.example.models.User;
 
 import java.io.IOException;
 
 public class signup {
     @FXML
     private Button loginButton;
+    @FXML
+    private Button signupButton;
 
     @FXML
     private void switchToLoginForm(ActionEvent event) throws IOException {
@@ -25,9 +29,24 @@ public class signup {
         stage.setScene(registerScene);
         stage.show();
     }
-
+    public void switchToAnotherUIWithoutEvent() throws IOException {
+        Stage stage = (Stage) usernameField.getScene().getWindow();  // lấy stage từ node nào đó
+        Parent newRoot = FXMLLoader.load(getClass().getResource("/view/signin.fxml"));
+        Scene newScene = new Scene(newRoot);
+        stage.setScene(newScene);
+        stage.show();
+    }
     @FXML
     private PasswordField passwordField;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private TextField emailField;
+    @FXML
+    private TextField phoneField;
+    @FXML
+    private TextField yourName;
+
 
     @FXML
     private CheckBox showPassword;
@@ -78,5 +97,36 @@ public class signup {
         textField.textProperty().bindBidirectional(passwordField.textProperty());
         innerAnchorPane.getChildren().add(textField);
         showPassword.setOnAction(e -> togglePasswordVisibility());
+        signupButton.setOnAction(e -> handleSignup());
+
+    }
+    private void handleSignup() {
+        String username = usernameField .getText();
+        String password = passwordField .getText();
+        String email = emailField .getText();
+        String phone = phoneField .getText();
+        String fullname = yourName.getText();
+        User user = new User(username, password,fullname,email, phone);
+        if(username.isEmpty()||password.isEmpty()||email.isEmpty()||phone.isEmpty()||fullname.isEmpty()){
+            showAlert(Alert.AlertType.ERROR, "Lỗi", "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.");
+        }else if(UserDAO.register(user)) {
+            showAlert(Alert.AlertType.INFORMATION, "Thành công", "Đăng kí  thành công!");
+            try {
+                switchToAnotherUIWithoutEvent();
+            } catch (IOException e) {
+                e.printStackTrace();
+                showAlert(Alert.AlertType.ERROR, "Lỗi", "Không thể chuyển giao diện.");
+            }
+        }else{
+            showAlert(Alert.AlertType.INFORMATION, "Lỗi", "Thông tin không hợp lệ !");
+        }
+    }
+
+    private void showAlert(Alert.AlertType type, String title, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
