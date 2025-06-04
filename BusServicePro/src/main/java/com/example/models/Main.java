@@ -131,6 +131,7 @@
 //}
 package com.example.models;
 import com.example.DAO.FeedbackDAO;
+import com.example.DAO.TripDAO;
 import com.example.DAO.UserDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -140,6 +141,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -157,7 +160,14 @@ public class Main extends Application {
         primaryStage.setTitle("Sign In");
         primaryStage.show();
 
+         User user = UserDAO.getUserById(2);
+         user.setEmail("namnguyen");
+         UserDAO.updateUser(user);
 
+         List<Trip> trips = TripDAO.getAllTrips();
+         for (Trip trip : trips) {
+             System.out.println(trip);
+         }
 
     }
 }

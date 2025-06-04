@@ -290,4 +290,29 @@ public class TripDAO {
         }
     }
 
+    // Lấy toàn bộ danh sách Trip kèm StopTimes
+    public static List<Trip> getAllTrips() {
+        List<Trip> trips = new ArrayList<>();
+        String sql = "SELECT tripID FROM Trip";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                int tripID = rs.getInt("tripID");
+                Trip trip = getTripWithStopTimes(tripID);
+                if (trip != null) {
+                    trips.add(trip);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return trips;
+    }
+
+
 }
