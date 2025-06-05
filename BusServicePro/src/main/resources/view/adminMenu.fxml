@@ -11,58 +11,59 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0"
-            prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.controller.adminMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.adminMenu">
     <children>
         <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../images/adminMenu.jpg"/>
+                <Image url="@../images/adminMenu.jpg" />
             </image>
         </ImageView>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#414a4c" height="768.0" stroke="BLACK" strokeType="INSIDE"
-                   style="-fx-opacity: 25%;" width="1024.0"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#414a4c" height="768.0" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="1024.0" />
         <BorderPane prefHeight="768.0" prefWidth="1024.0">
             <left>
-                <AnchorPane prefHeight="200.0" prefWidth="256.0" style="-fx-border-color: FFFAFA;"
-                            BorderPane.alignment="CENTER">
+                <AnchorPane prefHeight="200.0" prefWidth="256.0" style="-fx-border-color: FFFAFA;" BorderPane.alignment="CENTER">
                     <children>
-                        <ImageView fitHeight="175.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
-                                   AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="25.0">
+                        <ImageView fitHeight="175.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="25.0">
                             <image>
-                                <Image url="@../images/admin.png"/>
+                                <Image url="@../images/admin.png" />
                             </image>
                         </ImageView>
-                        <StackPane prefHeight="75.0" prefWidth="256.0" AnchorPane.leftAnchor="0.0"
-                                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="175.0">
+                        <StackPane prefHeight="75.0" prefWidth="256.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="175.0">
                             <children>
                                 <Text fill="SNOW" strokeType="OUTSIDE" strokeWidth="0.0" text="admin">
                                     <font>
-                                        <Font name="Tahoma" size="25.0"/>
+                                        <Font name="Tahoma" size="25.0" />
                                     </font>
                                 </Text>
                             </children>
                         </StackPane>
-                        <Button fx:id="profileBtn" mnemonicParsing="false" prefHeight="35.0"
-                                style="-fx-background-color: #00C5FF;" text="Profile" textAlignment="CENTER" textFill="SNOW"
-                                AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0">
+                        <Button fx:id="profileBtn" mnemonicParsing="false" prefHeight="35.0" style="-fx-background-color: #00C5FF;" text="Profile" textAlignment="CENTER" textFill="SNOW" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0">
                             <font>
-                                <Font name="Tahoma" size="17.0"/>
+                                <Font name="Tahoma" size="17.0" />
                             </font>
                             <cursor>
-                                <Cursor fx:constant="HAND"/>
+                                <Cursor fx:constant="HAND" />
                             </cursor>
                         </Button>
-                        <Button fx:id="signoutBtn" onAction="#getSignedOut" mnemonicParsing="false" prefHeight="35.0"
-                                style="-fx-background-color: CE0000;" text="Sign Out" textAlignment="CENTER" textFill="SNOW"
-                                AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0">
+                        <Button fx:id="signoutBtn" mnemonicParsing="false" onAction="#getSignedOut" prefHeight="35.0" style="-fx-background-color: CE0000;" text="Sign Out" textAlignment="CENTER" textFill="SNOW" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0">
                             <font>
-                                <Font name="Tahoma" size="17.0"/>
+                                <Font name="Tahoma" size="17.0" />
                             </font>
                             <cursor>
-                                <Cursor fx:constant="HAND"/>
+                                <Cursor fx:constant="HAND" />
                             </cursor>
                         </Button>
+                  <Button mnemonicParsing="false" prefHeight="35.0" text="Trip Management" textFill="#414a4c" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="300.0">
+                     <font>
+                        <Font name="Tahoma" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="35.0" text="View Feedback" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="350.0">
+                     <font>
+                        <Font name="Tahoma" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="76.0" layoutY="406.0" mnemonicParsing="false" prefHeight="35.0" text="Button" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="400.0" />
                     </children>
                 </AnchorPane>
             </left>

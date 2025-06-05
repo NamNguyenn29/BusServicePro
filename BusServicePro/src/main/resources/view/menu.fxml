@@ -73,7 +73,7 @@
             <right>
                 <AnchorPane fx:id="parentAnchorPane" prefHeight="768.0" prefWidth="768.0" BorderPane.alignment="CENTER">
                     <children>
-                        <StackPane prefHeight="175.0" style="-fx-background-color: FFFAFA; -fx-background-radius: 25px;" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="25.0">
+                        <StackPane prefHeight="175.0" style="-fx-background-color: FFFAFA; -fx-background-radius: 25px;" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
                             <children>
                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Book Your Trip">
                                     <font>
@@ -118,7 +118,7 @@
                                 </HBox>
                             </children>
                         </StackPane>
-                        <AnchorPane style="-fx-background-color: FFFAFA; -fx-background-radius: 25px;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="225.0">
+                        <AnchorPane style="-fx-background-color: FFFAFA; -fx-background-radius: 25px;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="225.0">
                             <children>
                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your History Booking Trips" wrappingWidth="425.0" AnchorPane.leftAnchor="137.0" AnchorPane.rightAnchor="137.0" AnchorPane.topAnchor="15.0">
                                     <font>
