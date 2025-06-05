@@ -37,7 +37,8 @@
                                 </Text>
                             </children>
                         </StackPane>
-                        <Button fx:id="profileBtn" mnemonicParsing="false" prefHeight="35.0" style="-fx-background-color: #00C5FF;" text="Profile" textAlignment="CENTER" textFill="SNOW" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0">
+                        <Button fx:id="profileBtn" onAction="#getSignedOut" mnemonicParsing="false" prefHeight="35.0"
+                                style="-fx-background-color: #00C5FF;" text="Profile" textAlignment="CENTER" textFill="SNOW" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0">
                             <font>
                                 <Font name="Tahoma" size="17.0" />
                             </font>
@@ -58,15 +59,29 @@
                         <Font name="Tahoma" size="17.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="35.0" text="View Feedback" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="350.0">
+                  <Button mnemonicParsing="false" prefHeight="35.0" text="View Booking" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="350.0">
                      <font>
                         <Font name="Tahoma" size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutX="76.0" layoutY="406.0" mnemonicParsing="false" prefHeight="35.0" text="Button" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="400.0" />
+                  <Button layoutX="76.0" layoutY="406.0" mnemonicParsing="false" prefHeight="35.0" text="View Feedback" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="400.0">
+                     <font>
+                        <Font name="Tahoma" size="17.0" />
+                     </font></Button>
                     </children>
                 </AnchorPane>
             </left>
+         <right>
+            <AnchorPane fx:id="parentAnchorPane" prefHeight="768.0" prefWidth="768.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane style="-fx-background-color: FFFAFA; -fx-background-radius: 25px;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+                     <children>
+                        <Text layoutX="323.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trip Management" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </right>
         </BorderPane>
     </children>
 </AnchorPane>

@@ -103,7 +103,7 @@
                                                 <Insets left="25.0" top="35.0" />
                                             </HBox.margin>
                                         </ComboBox>
-                                        <Button fx:id="bookBtn" mnemonicParsing="false" prefWidth="75.0" text="Book" HBox.hgrow="ALWAYS">
+                                        <Button fx:id="bookBtn" mnemonicParsing="false" prefWidth="75.0" style="-fx-background-color: #10893E;" text="Book" textFill="SNOW" HBox.hgrow="ALWAYS">
                                             <HBox.margin>
                                                 <Insets left="25.0" top="30.0" />
                                             </HBox.margin>
