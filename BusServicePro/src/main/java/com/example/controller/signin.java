@@ -177,7 +177,7 @@ public class signin {
                     showAlert(Alert.AlertType.ERROR, "Error", "Tên người dùng hoặc mật mã không đúng");
                 } else {
                     showAlert(Alert.AlertType.INFORMATION, "Info", "Đăng nhập thành công");
-                     this.userID = UserDAO.login(username,password).getUserID();
+                    this.userID = UserDAO.login(username,password).getUserID();
                     try {
                         getSignedIn(e);
                     } catch (IOException ex) {
