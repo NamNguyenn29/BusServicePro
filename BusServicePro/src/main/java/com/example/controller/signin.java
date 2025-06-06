@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
 import com.example.DAO.UserDAO;
 import com.example.models.User;
 
@@ -26,6 +27,8 @@ public class signin {
     private Button registerButton;
     @FXML
     private Button signinBtn;
+    @FXML
+    private static int userID;
 
     @FXML
     private void switchtoRegisterForm(ActionEvent event) throws IOException {
@@ -35,6 +38,7 @@ public class signin {
         stage.setScene(registerScene);
         stage.show();
     }
+
 
     @FXML
     private PasswordField passwordField;
@@ -94,8 +98,6 @@ public class signin {
 
         innerAnchorPane.getChildren().setAll(((AnchorPane) forgotPasswordRoot).getChildren());
     }
-
-
 
 
     @FXML
@@ -170,22 +172,46 @@ public class signin {
         signinBtn.setOnAction(e -> {
             String username = usernameLogin.getText();
             String password = passwordField.getText();
-            if(userRd.isSelected()) {
-                if(UserDAO.login(username,password)==null){
+            if (userRd.isSelected()) {
+                if (UserDAO.login(username, password) == null) {
                     showAlert(Alert.AlertType.ERROR, "Error", "Tên người dùng hoặc mật mã không đúng");
-                }else{
+                } else {
                     showAlert(Alert.AlertType.INFORMATION, "Info", "Đăng nhập thành công");
+                     this.userID = UserDAO.login(username,password).getUserID();
+                    try {
+                        getSignedIn(e);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
-            } else if(adminRd.isSelected()) {
-                if(UserDAO.login(username,password)==null){
+            } else if (adminRd.isSelected()) {
+                if (UserDAO.login(username, password) == null) {
                     showAlert(Alert.AlertType.ERROR, "Error", "Tên người dùng hoặc mật mã không đúng");
-                }else{
+                } else {
                     showAlert(Alert.AlertType.INFORMATION, "Info", "Đăng nhập thành công");
+                    try {
+                        getSignedInAsAdmin(e);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         });
+//        userRadioBtn.setSelected(true);
+//        signinBtn.setOnAction(e -> {
+//            try {
+//                if (userRadioBtn.isSelected()) {
+//                    getSignedIn(e);
+//                } else if (adminRadioBtn.isSelected()) {
+//                    getSignedInAsAdmin(e);
+//                }
+//            } catch (IOException ex) {
+//                throw new RuntimeException(ex);
+//            }
+//        });
 
     }
+
     private void showAlert(Alert.AlertType type, String title, String message) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
@@ -193,18 +219,8 @@ public class signin {
         alert.setContentText(message);
         alert.showAndWait();
 
-        userRadioBtn.setSelected(true);
-        signinBtn.setOnAction(e -> {
-            try {
-                if (userRadioBtn.isSelected()) {
-                    getSignedIn(e);
-                } else if (adminRadioBtn.isSelected()) {
-                    getSignedInAsAdmin(e);
-                }
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
-
+    }
+    public static int getIDFromSignin(){
+        return userID;
     }
 }

@@ -35,10 +35,10 @@ public class Stoptime {
     @Override
     public String toString() {
         return "Stoptime{" +
-                "stop=" + stop +
+                "stop=" + stop+
                 ", arrivalTime=" + arrivalTime +
                 ", departureTime=" + departureTime +
-                '}';
+                '}'+"\n";
     }
 
 }

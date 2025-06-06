@@ -65,13 +65,13 @@
                         </HBox>
                     </children>
                 </HBox>
-                <TableView>
+                <TableView fx:id="searchTable">
                     <columns>
-                        <TableColumn prefWidth="134.0" text="Order"/>
-                        <TableColumn prefWidth="134.0" text="Trip ID"/>
-                        <TableColumn prefWidth="134.0" text="Route"/>
-                        <TableColumn prefWidth="134.0" text="Departure"/>
-                        <TableColumn prefWidth="134.0" text="Arrival"/>
+                        <TableColumn fx:id="order" prefWidth="134.0" text="Order"/>
+                        <TableColumn fx:id="tripID" prefWidth="134.0" text="Trip ID"/>
+                        <TableColumn fx:id="route" prefWidth="134.0" text="Route"/>
+                        <TableColumn fx:id="departure" prefWidth="134.0" text="Departure"/>
+                        <TableColumn fx:id="arrival" prefWidth="134.0" text="Arrival"/>
                     </columns>
                     <StackPane.margin>
                         <Insets bottom="75.0" left="25.0" right="25.0" top="175.0"/>

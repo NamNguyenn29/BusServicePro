@@ -28,10 +28,7 @@ public class Trip {
 
     @Override
     public String toString() {
-        String result = tripID +" "+route.getRouteID() +" "+tripID+" \n";
-        for(Stoptime stoptime : stoptimes) {
-            result += stoptime.toString();
-        }
+        String result ="TripID: " +tripID +"\n";
         return result;
 
     }
