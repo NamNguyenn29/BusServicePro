@@ -36,33 +36,6 @@ public class UserDAO {
             return null;
         }
 
-        public static boolean updateUser(User user) {
-            String sql = "UPDATE user SET username = ?, userPassword = ?, fullName = ?, email = ?, phone = ? WHERE userID = ?";
-            try (Connection conn = DatabaseConnection.getConnection();
-                 PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-                stmt.setString(1, user.getUsername());
-                stmt.setString(2, PasswordUtil.hashPassword(user.getPassword()));
-                stmt.setString(3, user.getName());
-                stmt.setString(4, user.getEmail());
-                stmt.setString(5, user.getPhone());
-                stmt.setInt(6, user.getUserID());
-
-                int affectedRows = stmt.executeUpdate();
-                if (affectedRows > 0) {
-                    System.out.println("Cập nhật người dùng thành công.");
-                    return true;
-                } else {
-                    System.out.println("Không tìm thấy người dùng để cập nhật.");
-                    return false;
-                }
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-
     }
 
 
@@ -139,4 +112,8 @@ public class UserDAO {
             return false;
         }
     }
+
+
+
+
 }
