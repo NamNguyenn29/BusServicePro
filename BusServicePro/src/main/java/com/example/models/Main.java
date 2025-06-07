@@ -160,14 +160,6 @@ public class Main extends Application {
         primaryStage.setTitle("Sign In");
         primaryStage.show();
 
-         User user = UserDAO.getUserById(2);
-         user.setEmail("namnguyen");
-         UserDAO.updateUser(user);
-
-         List<Trip> trips = TripDAO.getAllTrips();
-         for (Trip trip : trips) {
-             System.out.println(trip);
-         }
-
+x
     }
 }
