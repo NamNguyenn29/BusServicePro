@@ -62,18 +62,21 @@
                         </HBox>
                     </children>
                 </HBox>
-                <TableView>
+            <AnchorPane fx:id="tableAnchorPane">
+               <StackPane.margin>
+                  <Insets bottom="75.0" left="25.0" right="25.0" top="175.0" />
+               </StackPane.margin>
+               <children>
+                  <TableView AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                        <TableColumn prefWidth="134.0" text="Order" />
-                        <TableColumn prefWidth="134.0" text="Trip ID" />
-                        <TableColumn prefWidth="134.0" text="Route" />
-                        <TableColumn prefWidth="134.0" text="Departure" />
-                        <TableColumn prefWidth="134.0" text="Arrival" />
+                      <TableColumn fx:id="order" prefWidth="167.0" text="Order" />
+                      <TableColumn fx:id="routeID" prefWidth="167.0" text="Route ID" />
+                        <TableColumn fx:id="departure" prefWidth="167.0" text="Departure" />
+                        <TableColumn fx:id="arrival" prefWidth="167.0" text="Arrival" />
                     </columns>
-                    <StackPane.margin>
-                        <Insets bottom="75.0" left="25.0" right="25.0" top="175.0" />
-                    </StackPane.margin>
-                </TableView>
+                  </TableView>
+               </children>
+            </AnchorPane>
                 <Button fx:id="cancelBtn" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #CE0000;" text="Cancel" textFill="SNOW">
                     <StackPane.margin>
                         <Insets left="150.0" top="650.0" />

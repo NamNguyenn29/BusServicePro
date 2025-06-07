@@ -57,6 +57,27 @@ public class adminMenu {
     }
 
     @FXML
+    private Button viewFeedbackBtn;
+
+    @FXML
+    private void switchToFeedback(ActionEvent event) throws IOException {
+        URL fxmlLocation = getClass().getResource("/view/adminFeedback.fxml");
+        FXMLLoader loader = new FXMLLoader(fxmlLocation);
+        Parent adminFeedbackRoot = loader.load();
+
+        adminFeedback adminFeedbackController = loader.getController();
+
+        AnchorPane newAnchorPane = new AnchorPane();
+        List<Node> childrenCopy = new ArrayList<>(parentAnchorPane.getChildren());
+        parentAnchorPane.getChildren().clear();
+        newAnchorPane.getChildren().addAll(childrenCopy);
+
+        adminFeedbackController.setContent(newAnchorPane);
+
+        parentAnchorPane.getChildren().setAll(((AnchorPane) adminFeedbackRoot).getChildren());
+    }
+
+    @FXML
     private void initialize() {
         signoutBtn.setOnAction(e -> {
             try {
@@ -69,6 +90,14 @@ public class adminMenu {
         profileBtn.setOnAction(e -> {
             try {
                 switchToProfile(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        viewFeedbackBtn.setOnAction(e -> {
+            try {
+                switchToFeedback(e);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

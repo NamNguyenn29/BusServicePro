@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.viewFeedback">
+   <children>
+      <Label text="User" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="25.0">
+         <font>
+            <Font name="Tahoma" size="25.0" />
+         </font>
+      </Label>
+      <TextField fx:id="user" editable="false" prefHeight="35.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="55.0" />
+      <Label layoutX="10.0" layoutY="10.0" text="Feedback" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="115.0">
+         <font>
+            <Font name="Tahoma" size="25.0" />
+         </font>
+      </Label>
+      <TextField fx:id="feedback" editable="false" layoutX="10.0" layoutY="10.0" prefHeight="35.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="150.0" />
+   </children>
+</AnchorPane>
