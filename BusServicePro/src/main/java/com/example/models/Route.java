@@ -41,4 +41,19 @@ public class Route {
         }
         return result;
     }
+
+    public Stop getFStop() {
+        if(stops.size() >= 2) {
+            return stops.get(0);
+        }
+        else return null;
+    }
+
+    public Stop getEStop() {
+        if(stops.size() >= 2) {
+            return stops.get(stops.size() - 1);
+        }
+        else return null;
+    }
+
 }
