@@ -131,6 +131,7 @@
 //}
 package com.example.models;
 import com.example.DAO.FeedbackDAO;
+import com.example.DAO.TripDAO;
 import com.example.DAO.UserDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -140,6 +141,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
 

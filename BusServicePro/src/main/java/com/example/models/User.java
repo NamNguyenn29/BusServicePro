@@ -29,7 +29,29 @@ public class User {
         this.phone = phone;
     }
 
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public int getUserID() {
         return userID;
@@ -39,6 +61,8 @@ public class User {
     public String getName() { return name; }
     public String getEmail() { return email; }
     public String getPhone() { return phone; }
+
+
 
     @Override
     public String toString() {

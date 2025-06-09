@@ -77,6 +77,21 @@
                   </TableView>
                </children>
             </AnchorPane>
+                <AnchorPane fx:id="tableAnchorPane">
+                    <StackPane.margin>
+                        <Insets bottom="75.0" left="25.0" right="25.0" top="175.0" />
+                    </StackPane.margin>
+                    <children>
+                        <TableView AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columns>
+                                <TableColumn fx:id="order" prefWidth="167.0" text="Order" />
+                                <TableColumn fx:id="routeID" prefWidth="167.0" text="Route ID" />
+                                <TableColumn fx:id="departure" prefWidth="167.0" text="Departure" />
+                                <TableColumn fx:id="arrival" prefWidth="167.0" text="Arrival" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
                 <Button fx:id="cancelBtn" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #CE0000;" text="Cancel" textFill="SNOW">
                     <StackPane.margin>
                         <Insets left="150.0" top="650.0" />
@@ -84,9 +99,9 @@
                     <font>
                         <Font name="Tahoma" size="17.0" />
                     </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                 </Button>
                 <Button fx:id="bookBtn" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #10893E;" text="Book" textAlignment="CENTER" textFill="SNOW">
                     <StackPane.margin>
@@ -95,9 +110,9 @@
                     <font>
                         <Font name="Tahoma" size="17.0" />
                     </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                 </Button>
             </children>
         </StackPane>

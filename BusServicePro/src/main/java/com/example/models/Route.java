@@ -35,10 +35,22 @@ public class Route {
 
     @Override
     public String toString() {
-        String result = routeID +" ";
-        for(Stop stop : stops) {
-            result += stop.getStopName() + "\n";
-        }
+        String result ="Route ID: "+ routeID ;
         return result;
     }
+
+    public Stop getFStop() {
+        if(stops.size() >= 2) {
+            return stops.get(0);
+        }
+        else return null;
+    }
+
+    public Stop getEStop() {
+        if(stops.size() >= 2) {
+            return stops.get(stops.size() - 1);
+        }
+        else return null;
+    }
+
 }

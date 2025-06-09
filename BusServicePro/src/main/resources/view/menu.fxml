@@ -125,7 +125,7 @@
                                         <Font name="Tahoma" size="35.0" />
                                     </font>
                                 </Text>
-                                <TableView layoutX="200.0" layoutY="211.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="75.0">
+                                <TableView fx:id="bookingTable" layoutX="200.0" layoutY="211.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="75.0">
                                     <columns>
                                         <TableColumn fx:id="order" prefWidth="167.0" text="Order" />
                                         <TableColumn fx:id="tripID" prefWidth="167.0" text="Trip ID" />
