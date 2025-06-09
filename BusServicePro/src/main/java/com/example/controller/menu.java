@@ -179,7 +179,7 @@ public class menu {
         ObservableList<Booking> observableBookings1 = FXCollections.observableArrayList(bookings1);
         bookingTable.setItems(observableBookings1);
         User user1= UserDAO.getUserById(signin.getIDFromSignin());
-        username.setText(user1.getName());
+        username.setText(user1.getUsername());
         signoutBtn.setOnAction(e -> {
             try {
                 getSignedOut(e);

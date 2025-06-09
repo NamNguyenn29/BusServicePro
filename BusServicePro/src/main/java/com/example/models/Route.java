@@ -35,10 +35,7 @@ public class Route {
 
     @Override
     public String toString() {
-        String result = routeID +" ";
-        for(Stop stop : stops) {
-            result += stop.getStopName() + "\n";
-        }
+        String result ="Route ID: "+ routeID ;
         return result;
     }
 

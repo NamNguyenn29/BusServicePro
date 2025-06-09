@@ -7,13 +7,13 @@ import java.util.List;
 
 public class SearchTrip {
 
-    private List<Trip> trips;
+    private static List<Trip> trips;
 
     public SearchTrip(List<Trip> trips) {
         this.trips = trips;
     }
 
-    public List<Trip> searchTrips(Stop fromStop, Stop toStop) {
+    public static List<Trip> searchTrips(Stop fromStop, Stop toStop) {
         List<Trip> result = new ArrayList<>();
 
         for (Trip trip : trips) {
