@@ -35,6 +35,7 @@ public class signin {
         Parent registerRoot = FXMLLoader.load(getClass().getResource("/view/signup.fxml"));
         Scene registerScene = new Scene(registerRoot);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("Sign Up");
         stage.setScene(registerScene);
         stage.show();
     }

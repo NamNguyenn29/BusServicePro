@@ -9,7 +9,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -25,10 +27,9 @@ import com.example.DAO.TripDAO;
 import com.example.models.Trip;
 import com.example.models.Stoptime;
 import com.example.DAO.StoptimeDAO;
+import javafx.scene.text.TextAlignment;
 
 
-
-import java.awt.*;
 import java.io.IOException;
 
 public class userSearch {
@@ -126,6 +127,7 @@ public class userSearch {
             column6.setStyle("-fx-alignment: CENTER;");
             column7.setStyle("-fx-alignment: CENTER;");
             searchTripTable.getColumns().addAll(column0, column1, column2, column3, column4, column5, column6, column7);
+            centerTableHeaders(searchTripTable);
             tableAnchorPane.getChildren().add(searchTripTable);
             AnchorPane.setTopAnchor(searchTripTable, 0.0);
             AnchorPane.setRightAnchor(searchTripTable, 0.0);
@@ -233,6 +235,23 @@ public class userSearch {
                 }
             });
             searchStopTable.getItems().clear();
+        }
+    }
+
+    //    This is the function for center the column headers in the Search by Trip table,
+//    if you ask me how the hell does this work then I have no idea.
+    private void centerTableHeaders(TableView<?> table) {
+        for (TableColumn<?, ?> column : table.getColumns()) {
+            String headerText = column.getText();
+
+            Label headerLabel = new Label(headerText);
+            headerLabel.setMaxWidth(Double.MAX_VALUE);
+            headerLabel.setAlignment(Pos.CENTER);
+            headerLabel.setTextAlignment(TextAlignment.CENTER);
+            headerLabel.setStyle("-fx-alignment: center; -fx-text-alignment: center;");
+
+            column.setGraphic(headerLabel);
+            column.setText("");
         }
     }
 
