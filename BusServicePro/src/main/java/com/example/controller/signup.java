@@ -28,6 +28,7 @@ public class signup {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("Sign In");
         stage.setScene(registerScene);
+        stage.setTitle("Sign In");
         stage.show();
     }
     public void switchToAnotherUIWithoutEvent() throws IOException {

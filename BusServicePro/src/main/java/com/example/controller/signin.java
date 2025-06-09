@@ -37,6 +37,7 @@ public class signin {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("Sign Up");
         stage.setScene(registerScene);
+        stage.setTitle("Sign Up");
         stage.show();
     }
 

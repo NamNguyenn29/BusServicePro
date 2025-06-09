@@ -43,6 +43,7 @@
                                 </Text>
                             </children>
                         </StackPane>
+                        <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#getSignedOut" prefHeight="35.0" style="-fx-background-color: #00C5FF;" text="Profile" textAlignment="CENTER" textFill="SNOW" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0">
                         <Button fx:id="profileBtn" mnemonicParsing="false" prefHeight="35.0"
                                 style="-fx-background-color: #00C5FF;" text="Profile" textAlignment="CENTER" textFill="SNOW"
                                 AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0">
@@ -63,6 +64,21 @@
                                 <Cursor fx:constant="HAND"/>
                             </cursor>
                         </Button>
+                  <Button mnemonicParsing="false" prefHeight="35.0" text="Trip Management" textFill="#414a4c" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="300.0">
+                     <font>
+                        <Font name="Tahoma" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="35.0" text="View Booking" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="350.0">
+                     <font>
+                        <Font name="Tahoma" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="viewFeedbackBtn" onAction="#switchToFeedback" layoutX="76.0" layoutY="406.0" mnemonicParsing="false"
+                          prefHeight="35.0" text="View Feedback" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="400.0">
+                     <font>
+                        <Font name="Tahoma" size="17.0" />
+                     </font></Button>
                     </children>
                 </AnchorPane>
             </left>

@@ -28,12 +28,73 @@ public class adminMenu {
     }
 
     @FXML
+    private AnchorPane parentAnchorPane;
+
+    @FXML
+    private Button profileBtn;
+
+    @FXML
+    private void switchToProfile(ActionEvent event) throws IOException {
+        URL fxmlLocation = getClass().getResource("/view/adminProfile.fxml");
+        FXMLLoader loader = new FXMLLoader(fxmlLocation);
+        Parent adminProfileRoot = loader.load();
+
+        adminProfile adminProfileController = loader.getController();
+
+        AnchorPane newAnchorPane = new AnchorPane();
+        List<Node> childrenCopy = new ArrayList<>(parentAnchorPane.getChildren());
+        parentAnchorPane.getChildren().clear();
+        newAnchorPane.getChildren().addAll(childrenCopy);
+
+        adminProfileController.setContent(newAnchorPane);
+
+        parentAnchorPane.getChildren().setAll(((AnchorPane) adminProfileRoot).getChildren());
+    }
+
+    @FXML
+    private Button viewFeedbackBtn;
+
+    @FXML
+    private void switchToFeedback(ActionEvent event) throws IOException {
+        URL fxmlLocation = getClass().getResource("/view/adminFeedback.fxml");
+        FXMLLoader loader = new FXMLLoader(fxmlLocation);
+        Parent adminFeedbackRoot = loader.load();
+
+        adminFeedback adminFeedbackController = loader.getController();
+
+        AnchorPane newAnchorPane = new AnchorPane();
+        List<Node> childrenCopy = new ArrayList<>(parentAnchorPane.getChildren());
+        parentAnchorPane.getChildren().clear();
+        newAnchorPane.getChildren().addAll(childrenCopy);
+
+        adminFeedbackController.setContent(newAnchorPane);
+
+        parentAnchorPane.getChildren().setAll(((AnchorPane) adminFeedbackRoot).getChildren());
+    }
+
+    @FXML
     private void initialize() {
         signoutBtn.setOnAction(e -> {
             try {
                 getSignedOut(e);
             } catch (IOException ex) {
                 throw new RuntimeException();
+            }
+        });
+
+        profileBtn.setOnAction(e -> {
+            try {
+                switchToProfile(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        viewFeedbackBtn.setOnAction(e -> {
+            try {
+                switchToFeedback(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
         });
     }

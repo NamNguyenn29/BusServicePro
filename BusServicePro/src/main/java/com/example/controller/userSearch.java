@@ -10,6 +10,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -17,6 +21,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.control.Label;
+import javafx.scene.text.TextAlignment;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -95,6 +102,24 @@ public class userSearch {
             tripComboBox2.setTranslateX(50);
             parentHBox.getChildren().add(tripComboBox1);
             parentHBox.getChildren().add(tripComboBox2);
+            TableView<String> searchTripTable = new TableView<>();
+            searchTripTable.setId("searchTripTable");
+            TableColumn<String, String> column0 = new TableColumn<>("Order");
+            column0.setId("order");
+            TableColumn<String, String> column1 = new TableColumn<>("Trip ID");
+            column1.setId("tripID");
+            TableColumn<String, String> column2 = new TableColumn<>("Departure\n Stop");
+            column2.setId("departureStop");
+            TableColumn<String, String> column3 = new TableColumn<>("Arrival\n Stop");
+            column3.setId("arrivalStop");
+            TableColumn<String, String> column4 = new TableColumn<>("Departure\n Start Location");
+            column4.setId("departureStartLocation");
+            TableColumn<String, String> column5 = new TableColumn<>("Arrival\n Start Location");
+            column5.setId("arrivalStartLocation");
+            TableColumn<String, String> column6 = new TableColumn<>("Departure\n End Location");
+            column6.setId("departureEndLocation");
+            TableColumn<String, String> column7 = new TableColumn<>("Arrival\n End Location");
+            column7.setId("arrivalEndLocation");
             TableView<TripLegDisplay> searchTripTable = new TableView<>();
             TableColumn<TripLegDisplay, Integer> column0 = new TableColumn<>("Order");
             column0.setId("order");
@@ -116,6 +141,14 @@ public class userSearch {
             column1.setPrefWidth(71);
             column2.setPrefWidth(87);
             column3.setPrefWidth(87);
+            column4.setPrefWidth(88);
+            column5.setPrefWidth(88);
+            column6.setPrefWidth(88);
+            column7.setPrefWidth(88);
+            searchTripTable.getColumns().addAll(column0, column1, column2, column3, column4, column5, column6, column7);
+
+            centerTableHeaders(searchTripTable);
+
             column4.setPrefWidth(87);
             column5.setPrefWidth(87);
             column6.setPrefWidth(87);
@@ -163,6 +196,11 @@ public class userSearch {
             routeComboBox.setId("routeBox");
             routeComboBox.setPrefWidth(150);
             parentHBox.getChildren().add(routeComboBox);
+            TableView<String> searchRouteTable = new TableView<>();
+            TableColumn<String, String> column0 = new TableColumn<>("Order");
+            column0.setId("order");
+            TableColumn<String, String> column1 = new TableColumn<>("Route ID");
+            column1.setId("routeID");
             TableView<Stop> searchRouteTable = new TableView<>();
             TableColumn<Stop, Integer> column0 = new TableColumn<>("Order");
             column0.setId("order");
@@ -176,6 +214,7 @@ public class userSearch {
             AnchorPane.setRightAnchor(searchRouteTable, 0.0);
             AnchorPane.setBottomAnchor(searchRouteTable, 0.0);
             AnchorPane.setLeftAnchor(searchRouteTable, 0.0);
+
             List<Route> routeList = RouteDAO.getAllRoutes();
             routeComboBox.setItems(FXCollections.observableArrayList(routeList));
             routeComboBox.setOnAction(e -> {
@@ -197,6 +236,14 @@ public class userSearch {
             stopComboBox.setId("stopBox");
             stopComboBox.setPrefWidth(150);
             parentHBox.getChildren().add(stopComboBox);
+            TableView<String> searchStopTable = new TableView<>();
+            TableColumn<String, String> column0 = new TableColumn<>("Order");
+            column0.setId("order");
+            TableColumn<String, String> column1 = new TableColumn<>("Route ID");
+            column1.setId("routeID");
+            TableColumn<String, String> column2 = new TableColumn<>("Departure");
+            column2.setId("departure");
+            TableColumn<String, String> column3 = new TableColumn<>("Arrival");
             TableView<Route> searchStopTable = new TableView<>();
             TableColumn<Route, Integer> column0 = new TableColumn<>("Order");
             column0.setId("order");
@@ -264,6 +311,5 @@ public class userSearch {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-
     }
 }
