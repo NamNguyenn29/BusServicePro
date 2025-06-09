@@ -129,11 +129,6 @@ public class signin {
     }
 
     @FXML
-    private RadioButton userRadioBtn;
-    @FXML
-    private RadioButton adminRadioBtn;
-
-    @FXML
     private void initialize() {
         textField = new TextField();
         textField.setVisible(false);
@@ -197,6 +192,19 @@ public class signin {
                 }
             }
         });
+
+//        userRd.setSelected(true);
+//        signinBtn.setOnAction(e -> {
+//            try {
+//                if (userRd.isSelected()) {
+//                    getSignedIn(e);
+//                } else if (adminRd.isSelected()) {
+//                    getSignedInAsAdmin(e);
+//                }
+//            } catch (IOException ex) {
+//                throw new RuntimeException(ex);
+//            }
+//        });
     }
 
     private void showAlert(Alert.AlertType type, String title, String message) {
@@ -208,7 +216,7 @@ public class signin {
 
     }
 
-    public static int getIDFromSignin(){
+    public static int getIDFromSignin() {
         return userID;
     }
 }

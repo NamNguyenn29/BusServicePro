@@ -78,6 +78,27 @@ public class adminMenu {
     }
 
     @FXML
+    private Button viewBookingBtn;
+
+    @FXML
+    private void switchToViewBooking(ActionEvent event) throws IOException {
+        URL fxmlLocation = getClass().getResource("/view/adminBooking.fxml");
+        FXMLLoader loader = new FXMLLoader(fxmlLocation);
+        Parent adminBookingRoot = loader.load();
+
+        adminBooking adminBookingController = loader.getController();
+
+        AnchorPane newAnchorPane = new AnchorPane();
+        List<Node> childrenCopy = new ArrayList<>(parentAnchorPane.getChildren());
+        parentAnchorPane.getChildren().clear();
+        newAnchorPane.getChildren().addAll(childrenCopy);
+
+        adminBookingController.setContent(newAnchorPane);
+
+        parentAnchorPane.getChildren().setAll(((AnchorPane) adminBookingRoot).getChildren());
+    }
+
+    @FXML
     private void initialize() {
         signoutBtn.setOnAction(e -> {
             try {
@@ -98,6 +119,14 @@ public class adminMenu {
         viewFeedbackBtn.setOnAction(e -> {
             try {
                 switchToFeedback(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        viewBookingBtn.setOnAction(e -> {
+            try {
+                switchToViewBooking(e);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

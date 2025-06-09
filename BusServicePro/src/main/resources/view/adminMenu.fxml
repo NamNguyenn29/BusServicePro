@@ -53,18 +53,18 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </Button>
-                  <Button mnemonicParsing="false" prefHeight="35.0" text="Trip Management" textFill="#414a4c" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="300.0">
+                  <Button fx:id="tripManagement" mnemonicParsing="false" prefHeight="35.0" text="Trip Management" textFill="#414a4c" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="300.0">
                      <font>
                         <Font name="Tahoma" size="17.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="35.0" text="View Booking" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="350.0">
+                  <Button fx:id="viewBookingBtn" onAction="#switchToViewBooking" mnemonicParsing="false" prefHeight="35.0" text="View Booking"
+                          AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="350.0">
                      <font>
                         <Font name="Tahoma" size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="viewFeedbackBtn" onAction="#switchToFeedback" layoutX="76.0" layoutY="406.0" mnemonicParsing="false"
-                          prefHeight="35.0" text="View Feedback" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="400.0">
+                  <Button fx:id="viewFeedbackBtn" layoutX="76.0" layoutY="406.0" mnemonicParsing="false" onAction="#switchToFeedback" prefHeight="35.0" text="View Feedback" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="400.0">
                      <font>
                         <Font name="Tahoma" size="17.0" />
                      </font></Button>

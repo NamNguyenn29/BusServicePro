@@ -47,9 +47,7 @@
             </StackPane>
             <HBox layoutX="159.0" layoutY="604.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="650.0">
                <children>
-                  <Button fx:id="viewBtn" onAction="#viewUserFeedback" mnemonicParsing="false" prefWidth="75.0"
-                          style="-fx-background-color: #00C5FF;"
-                          text="View" textAlignment="CENTER" textFill="SNOW">
+                  <Button fx:id="viewBtn" mnemonicParsing="false" onAction="#viewUserFeedback" prefWidth="75.0" style="-fx-background-color: #00C5FF;" text="View" textAlignment="CENTER" textFill="SNOW">
                      <HBox.margin>
                         <Insets left="200.0" />
                      </HBox.margin>
