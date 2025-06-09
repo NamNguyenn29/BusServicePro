@@ -15,6 +15,9 @@ public class Stop {
 
     public int getStopID() { return stopID; }
     public String getStopName() { return stopName; }
+    public Stop getStop() {
+        return this;
+    }
 
 
     @Override

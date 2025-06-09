@@ -29,6 +29,8 @@ public class userFeedback {
     private TableView<Feedback> feedbackTable;
     @FXML
     private Button submit;
+    @FXML
+    private Button clear;
 
 
     @FXML
@@ -58,6 +60,9 @@ public class userFeedback {
             submitDate.setCellValueFactory(new PropertyValueFactory<>("submitDate"));
             function.setCellValueFactory(new PropertyValueFactory<>("message"));
             feedbackTable.setItems(FXCollections.observableArrayList(feedbacks2));
+        });
+        clear.setOnAction(event -> {
+            feedback.setText("");
         });
     }
 
