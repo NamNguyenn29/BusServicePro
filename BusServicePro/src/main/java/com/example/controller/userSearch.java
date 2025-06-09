@@ -2,13 +2,17 @@ package com.example.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.control.Label;
+import javafx.scene.text.TextAlignment;
 
-import java.awt.*;
 import java.io.IOException;
 
 public class userSearch {
@@ -44,6 +48,7 @@ public class userSearch {
             parentHBox.getChildren().add(tripComboBox1);
             parentHBox.getChildren().add(tripComboBox2);
             TableView<String> searchTripTable = new TableView<>();
+            searchTripTable.setId("searchTripTable");
             TableColumn<String, String> column0 = new TableColumn<>("Order");
             column0.setId("order");
             TableColumn<String, String> column1 = new TableColumn<>("Trip ID");
@@ -64,18 +69,14 @@ public class userSearch {
             column1.setPrefWidth(71);
             column2.setPrefWidth(87);
             column3.setPrefWidth(87);
-            column4.setPrefWidth(87);
-            column5.setPrefWidth(87);
-            column6.setPrefWidth(87);
-            column7.setPrefWidth(87);
-            column0.setStyle("-fx-alignment: CENTER;");
-            column2.setStyle("-fx-alignment: CENTER;");
-            column3.setStyle("-fx-alignment: CENTER;");
-            column4.setStyle("-fx-alignment: CENTER;");
-            column5.setStyle("-fx-alignment: CENTER;");
-            column6.setStyle("-fx-alignment: CENTER;");
-            column7.setStyle("-fx-alignment: CENTER;");
+            column4.setPrefWidth(88);
+            column5.setPrefWidth(88);
+            column6.setPrefWidth(88);
+            column7.setPrefWidth(88);
             searchTripTable.getColumns().addAll(column0, column1, column2, column3, column4, column5, column6, column7);
+
+            centerTableHeaders(searchTripTable);
+
             tableAnchorPane.getChildren().add(searchTripTable);
             AnchorPane.setTopAnchor(searchTripTable, 0.0);
             AnchorPane.setRightAnchor(searchTripTable, 0.0);
@@ -123,6 +124,23 @@ public class userSearch {
             AnchorPane.setRightAnchor(searchStopTable, 0.0);
             AnchorPane.setBottomAnchor(searchStopTable, 0.0);
             AnchorPane.setLeftAnchor(searchStopTable, 0.0);
+        }
+    }
+
+    //    This is the function for center the column headers in the Search by Trip table,
+//    if you ask me how the hell does this work then I have no idea.
+    private void centerTableHeaders(TableView<?> table) {
+        for (TableColumn<?, ?> column : table.getColumns()) {
+            String headerText = column.getText();
+
+            Label headerLabel = new Label(headerText);
+            headerLabel.setMaxWidth(Double.MAX_VALUE);
+            headerLabel.setAlignment(Pos.CENTER);
+            headerLabel.setTextAlignment(TextAlignment.CENTER);
+            headerLabel.setStyle("-fx-alignment: center; -fx-text-alignment: center;");
+
+            column.setGraphic(headerLabel);
+            column.setText("");
         }
     }
 

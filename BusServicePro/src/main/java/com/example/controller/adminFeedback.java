@@ -30,7 +30,7 @@ public class adminFeedback {
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Sign In");
+        stage.setTitle("User Feedback");
         stage.show();
     }
 

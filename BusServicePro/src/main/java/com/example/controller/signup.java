@@ -23,6 +23,7 @@ public class signup {
         Scene registerScene = new Scene(registerRoot);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(registerScene);
+        stage.setTitle("Sign In");
         stage.show();
     }
 

@@ -12,12 +12,12 @@
             <Font name="Tahoma" size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="user" editable="false" prefHeight="35.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="55.0" />
+      <TextField fx:id="user" editable="false" prefHeight="35.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="55.0" />
       <Label layoutX="10.0" layoutY="10.0" text="Feedback" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="115.0">
          <font>
             <Font name="Tahoma" size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="feedback" editable="false" layoutX="10.0" layoutY="10.0" prefHeight="35.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="150.0" />
+      <TextField fx:id="feedback" editable="false" layoutX="10.0" layoutY="10.0" prefHeight="35.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="150.0" />
    </children>
 </AnchorPane>
