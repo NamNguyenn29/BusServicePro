@@ -74,9 +74,6 @@ public class menu {
     @FXML
     private TableColumn<Booking, Stop> arrival;
 
-
-
-
     @FXML
     private void switchToBookingForm(ActionEvent event) throws IOException {
         URL fxmlLocation = getClass().getResource("/view/menu.fxml");
@@ -266,7 +263,6 @@ public class menu {
             User user2= UserDAO.getUserById(signin.getIDFromSignin());
             username.setText(user2.getName());
         });
-
     }
 
     public void showAlert(Alert.AlertType type, String title, String message) {
@@ -276,6 +272,4 @@ public class menu {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
-
 }

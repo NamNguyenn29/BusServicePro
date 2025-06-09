@@ -36,6 +36,7 @@ public class userProfile {
     public void setContent(AnchorPane parentAnchorPane) {
         parentAnchorPane.getChildren().setAll(parentAnchorPane.getChildren());
     }
+
     public void initialize() {
         int id=signin.getIDFromSignin();
         User user=UserDAO.getUserById(id);

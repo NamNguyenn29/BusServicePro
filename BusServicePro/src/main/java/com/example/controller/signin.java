@@ -135,8 +135,6 @@ public class signin {
 
     @FXML
     private void initialize() {
-
-
         textField = new TextField();
         textField.setVisible(false);
         textField.setManaged(false);
@@ -199,19 +197,6 @@ public class signin {
                 }
             }
         });
-//        userRadioBtn.setSelected(true);
-//        signinBtn.setOnAction(e -> {
-//            try {
-//                if (userRadioBtn.isSelected()) {
-//                    getSignedIn(e);
-//                } else if (adminRadioBtn.isSelected()) {
-//                    getSignedInAsAdmin(e);
-//                }
-//            } catch (IOException ex) {
-//                throw new RuntimeException(ex);
-//            }
-//        });
-
     }
 
     private void showAlert(Alert.AlertType type, String title, String message) {
@@ -222,6 +207,7 @@ public class signin {
         alert.showAndWait();
 
     }
+
     public static int getIDFromSignin(){
         return userID;
     }

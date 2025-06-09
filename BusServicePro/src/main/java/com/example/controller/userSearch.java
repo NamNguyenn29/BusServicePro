@@ -28,6 +28,7 @@ import javafx.scene.text.TextAlignment;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.ArrayList;
+
 import com.example.models.SearchTrip;
 import com.example.models.TripLegDisplay;
 import com.example.DAO.TripDAO;
@@ -47,6 +48,7 @@ public class userSearch {
     public void setContent(AnchorPane parentAnchorPane) {
         parentAnchorPane.getChildren().setAll(parentAnchorPane.getChildren());
     }
+
     public ObservableList<TripLegDisplay> convertTripsToLegs(List<Trip> trips) {
         ObservableList<TripLegDisplay> list = FXCollections.observableArrayList();
         int globalSTT = 1;
@@ -72,7 +74,7 @@ public class userSearch {
 
                 ));
             }
-            globalSTT=1;
+            globalSTT = 1;
         }
 
         return list;
@@ -102,24 +104,6 @@ public class userSearch {
             tripComboBox2.setTranslateX(50);
             parentHBox.getChildren().add(tripComboBox1);
             parentHBox.getChildren().add(tripComboBox2);
-            TableView<String> searchTripTable = new TableView<>();
-            searchTripTable.setId("searchTripTable");
-            TableColumn<String, String> column0 = new TableColumn<>("Order");
-            column0.setId("order");
-            TableColumn<String, String> column1 = new TableColumn<>("Trip ID");
-            column1.setId("tripID");
-            TableColumn<String, String> column2 = new TableColumn<>("Departure\n Stop");
-            column2.setId("departureStop");
-            TableColumn<String, String> column3 = new TableColumn<>("Arrival\n Stop");
-            column3.setId("arrivalStop");
-            TableColumn<String, String> column4 = new TableColumn<>("Departure\n Start Location");
-            column4.setId("departureStartLocation");
-            TableColumn<String, String> column5 = new TableColumn<>("Arrival\n Start Location");
-            column5.setId("arrivalStartLocation");
-            TableColumn<String, String> column6 = new TableColumn<>("Departure\n End Location");
-            column6.setId("departureEndLocation");
-            TableColumn<String, String> column7 = new TableColumn<>("Arrival\n End Location");
-            column7.setId("arrivalEndLocation");
             TableView<TripLegDisplay> searchTripTable = new TableView<>();
             TableColumn<TripLegDisplay, Integer> column0 = new TableColumn<>("Order");
             column0.setId("order");
@@ -149,58 +133,40 @@ public class userSearch {
 
             centerTableHeaders(searchTripTable);
 
-            column4.setPrefWidth(87);
-            column5.setPrefWidth(87);
-            column6.setPrefWidth(87);
-            column7.setPrefWidth(87);
-            column0.setStyle("-fx-alignment: CENTER;");
-            column2.setStyle("-fx-alignment: CENTER;");
-            column3.setStyle("-fx-alignment: CENTER;");
-            column4.setStyle("-fx-alignment: CENTER;");
-            column5.setStyle("-fx-alignment: CENTER;");
-            column6.setStyle("-fx-alignment: CENTER;");
-            column7.setStyle("-fx-alignment: CENTER;");
-            searchTripTable.getColumns().addAll(column0, column1, column2, column3, column4, column5, column6, column7);
-            centerTableHeaders(searchTripTable);
             tableAnchorPane.getChildren().add(searchTripTable);
             AnchorPane.setTopAnchor(searchTripTable, 0.0);
             AnchorPane.setRightAnchor(searchTripTable, 0.0);
             AnchorPane.setBottomAnchor(searchTripTable, 0.0);
             AnchorPane.setLeftAnchor(searchTripTable, 0.0);
-            List<Stop>allStops = StopDAO.getAllStops();
+            List<Stop> allStops = StopDAO.getAllStops();
             tripComboBox1.setItems(FXCollections.observableArrayList(allStops));
             tripComboBox2.setItems(FXCollections.observableArrayList(allStops));
             tripComboBox2.setOnAction(event -> {
-            Stop selectedStop1 = tripComboBox1.getValue();
-            Stop selectedStop2 = tripComboBox2.getValue();
-            List<Trip> tripList=TripDAO.searchTrips(selectedStop1,selectedStop2);
-            List<Trip> realTripList = new ArrayList<>();
-            for(Trip trip : tripList) {
-                Trip realTrip=TripDAO.getTripWithStopTimes(trip.getTripID());
-                realTripList.add(realTrip);
-            }
-            column0.setCellValueFactory(new PropertyValueFactory<>("stt"));
-            column1.setCellValueFactory(new PropertyValueFactory<>("tripId"));
-            column2.setCellValueFactory(new PropertyValueFactory<>("departureStop"));
-            column3.setCellValueFactory(new PropertyValueFactory<>("arrivalStop"));
-            column4.setCellValueFactory(new PropertyValueFactory<>("departureTime1"));
-            column5.setCellValueFactory(new PropertyValueFactory<>("arrivalTime1"));
-            column6.setCellValueFactory(new PropertyValueFactory<>("departureTime2"));
-            column7.setCellValueFactory(new PropertyValueFactory<>("arrivalTime2"));
-            ObservableList<TripLegDisplay> displayList = convertTripsToLegs(realTripList);
-            searchTripTable.setItems(displayList);
+                Stop selectedStop1 = tripComboBox1.getValue();
+                Stop selectedStop2 = tripComboBox2.getValue();
+                List<Trip> tripList = TripDAO.searchTrips(selectedStop1, selectedStop2);
+                List<Trip> realTripList = new ArrayList<>();
+                for (Trip trip : tripList) {
+                    Trip realTrip = TripDAO.getTripWithStopTimes(trip.getTripID());
+                    realTripList.add(realTrip);
+                }
+                column0.setCellValueFactory(new PropertyValueFactory<>("stt"));
+                column1.setCellValueFactory(new PropertyValueFactory<>("tripId"));
+                column2.setCellValueFactory(new PropertyValueFactory<>("departureStop"));
+                column3.setCellValueFactory(new PropertyValueFactory<>("arrivalStop"));
+                column4.setCellValueFactory(new PropertyValueFactory<>("departureTime1"));
+                column5.setCellValueFactory(new PropertyValueFactory<>("arrivalTime1"));
+                column6.setCellValueFactory(new PropertyValueFactory<>("departureTime2"));
+                column7.setCellValueFactory(new PropertyValueFactory<>("arrivalTime2"));
+                ObservableList<TripLegDisplay> displayList = convertTripsToLegs(realTripList);
+                searchTripTable.setItems(displayList);
             });
 
         } else if ("Search by Route".equals(searchBox.getValue())) {
-            ComboBox <Route>routeComboBox = new ComboBox();
+            ComboBox<Route> routeComboBox = new ComboBox();
             routeComboBox.setId("routeBox");
             routeComboBox.setPrefWidth(150);
             parentHBox.getChildren().add(routeComboBox);
-            TableView<String> searchRouteTable = new TableView<>();
-            TableColumn<String, String> column0 = new TableColumn<>("Order");
-            column0.setId("order");
-            TableColumn<String, String> column1 = new TableColumn<>("Route ID");
-            column1.setId("routeID");
             TableView<Stop> searchRouteTable = new TableView<>();
             TableColumn<Stop, Integer> column0 = new TableColumn<>("Order");
             column0.setId("order");
@@ -236,14 +202,6 @@ public class userSearch {
             stopComboBox.setId("stopBox");
             stopComboBox.setPrefWidth(150);
             parentHBox.getChildren().add(stopComboBox);
-            TableView<String> searchStopTable = new TableView<>();
-            TableColumn<String, String> column0 = new TableColumn<>("Order");
-            column0.setId("order");
-            TableColumn<String, String> column1 = new TableColumn<>("Route ID");
-            column1.setId("routeID");
-            TableColumn<String, String> column2 = new TableColumn<>("Departure");
-            column2.setId("departure");
-            TableColumn<String, String> column3 = new TableColumn<>("Arrival");
             TableView<Route> searchStopTable = new TableView<>();
             TableColumn<Route, Integer> column0 = new TableColumn<>("Order");
             column0.setId("order");
@@ -274,7 +232,8 @@ public class userSearch {
 
             column3.setCellValueFactory(cellData ->
                     new ReadOnlyObjectWrapper<>(cellData.getValue().getEStop()));
-            stopComboBox.setOnAction(e -> {Stop selectedStop = stopComboBox.getSelectionModel().getSelectedItem();
+            stopComboBox.setOnAction(e -> {
+                Stop selectedStop = stopComboBox.getSelectionModel().getSelectedItem();
                 if (selectedStop != null) {
                     List<Route> routeList = RouteDAO.getRoutesByStopID(selectedStop.getStopID());
                     searchStopTable.setItems(FXCollections.observableArrayList(routeList));
@@ -286,8 +245,6 @@ public class userSearch {
         }
     }
 
-    //    This is the function for center the column headers in the Search by Trip table,
-//    if you ask me how the hell does this work then I have no idea.
     private void centerTableHeaders(TableView<?> table) {
         for (TableColumn<?, ?> column : table.getColumns()) {
             String headerText = column.getText();
@@ -307,9 +264,9 @@ public class userSearch {
     private void initialize() {
         searchBox.getSelectionModel().selectFirst();
         try {
-                createComboBoxBasedOnSearch();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            createComboBoxBasedOnSearch();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }
