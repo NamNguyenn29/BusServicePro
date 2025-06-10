@@ -130,6 +130,7 @@
 ////    }
 //}
 package com.example.models;
+import com.example.DAO.AdminDAO;
 import com.example.DAO.FeedbackDAO;
 import com.example.DAO.TripDAO;
 import com.example.DAO.UserDAO;
@@ -159,8 +160,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Sign In");
         primaryStage.show();
-
-
-
+        Admin admin = new Admin("Nam11","123");
+        AdminDAO.register(admin);
     }
 }
