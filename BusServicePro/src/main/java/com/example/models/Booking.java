@@ -34,6 +34,8 @@ public class Booking {
     public int getBookingID() { return bookingID; }
     public Stop getFromStop() { return fromStop; }
     public Stop getToStop() { return toStop; }
+    public User getUser() { return customer; }
+    public int getStripIDFromStrip(){return trip.getTripID();}
 
     @Override
     public String toString() {

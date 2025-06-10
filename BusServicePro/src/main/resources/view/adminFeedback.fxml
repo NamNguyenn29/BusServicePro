@@ -29,7 +29,7 @@
                         <Font name="Tahoma" size="17.0" />
                     </font>
                 </Text>
-                <TableView AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="100.0">
+                <TableView fx:id="adminFeedbackTable" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="100.0">
                     <columns>
                         <TableColumn fx:id="userID" prefWidth="222.0" text="User ID" />
                         <TableColumn fx:id="userName" prefWidth="222.0" text="User Name" />
