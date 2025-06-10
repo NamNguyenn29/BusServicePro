@@ -1,6 +1,7 @@
 package com.example.models;
 
 import java.time.LocalDate;
+import com.example.DAO.UserDAO;
 
 public class Feedback {
     private int feedbackId;
@@ -22,6 +23,10 @@ public class Feedback {
     public String getMessage() { return message; }
     public LocalDate getSubmitDate() { return submitDate; }
     public int getUserID() { return userID; }
+    public String getUserName() {
+        User user= UserDAO.getUserById(userID);
+        return user.getUsername();
+    }
 
     @Override
     public String toString() {
