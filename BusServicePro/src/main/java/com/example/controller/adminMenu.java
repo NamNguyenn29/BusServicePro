@@ -3,12 +3,17 @@ package com.example.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class adminMenu {
     @FXML
@@ -28,12 +33,102 @@ public class adminMenu {
     }
 
     @FXML
+    private AnchorPane parentAnchorPane;
+
+    @FXML
+    private Button profileBtn;
+
+    @FXML
+    private void switchToProfile(ActionEvent event) throws IOException {
+        URL fxmlLocation = getClass().getResource("/view/adminProfile.fxml");
+        FXMLLoader loader = new FXMLLoader(fxmlLocation);
+        Parent adminProfileRoot = loader.load();
+
+        adminProfile adminProfileController = loader.getController();
+
+        AnchorPane newAnchorPane = new AnchorPane();
+        List<Node> childrenCopy = new ArrayList<>(parentAnchorPane.getChildren());
+        parentAnchorPane.getChildren().clear();
+        newAnchorPane.getChildren().addAll(childrenCopy);
+
+        adminProfileController.setContent(newAnchorPane);
+
+        parentAnchorPane.getChildren().setAll(((AnchorPane) adminProfileRoot).getChildren());
+    }
+
+    @FXML
+    private Button viewFeedbackBtn;
+
+    @FXML
+    private void switchToFeedback(ActionEvent event) throws IOException {
+        URL fxmlLocation = getClass().getResource("/view/adminFeedback.fxml");
+        FXMLLoader loader = new FXMLLoader(fxmlLocation);
+        Parent adminFeedbackRoot = loader.load();
+
+        adminFeedback adminFeedbackController = loader.getController();
+
+        AnchorPane newAnchorPane = new AnchorPane();
+        List<Node> childrenCopy = new ArrayList<>(parentAnchorPane.getChildren());
+        parentAnchorPane.getChildren().clear();
+        newAnchorPane.getChildren().addAll(childrenCopy);
+
+        adminFeedbackController.setContent(newAnchorPane);
+
+        parentAnchorPane.getChildren().setAll(((AnchorPane) adminFeedbackRoot).getChildren());
+    }
+
+    @FXML
+    private Button viewBookingBtn;
+
+    @FXML
+    private void switchToViewBooking(ActionEvent event) throws IOException {
+        URL fxmlLocation = getClass().getResource("/view/adminBooking.fxml");
+        FXMLLoader loader = new FXMLLoader(fxmlLocation);
+        Parent adminBookingRoot = loader.load();
+
+        adminBooking adminBookingController = loader.getController();
+
+        AnchorPane newAnchorPane = new AnchorPane();
+        List<Node> childrenCopy = new ArrayList<>(parentAnchorPane.getChildren());
+        parentAnchorPane.getChildren().clear();
+        newAnchorPane.getChildren().addAll(childrenCopy);
+
+        adminBookingController.setContent(newAnchorPane);
+
+        parentAnchorPane.getChildren().setAll(((AnchorPane) adminBookingRoot).getChildren());
+    }
+
+    @FXML
     private void initialize() {
         signoutBtn.setOnAction(e -> {
             try {
                 getSignedOut(e);
             } catch (IOException ex) {
                 throw new RuntimeException();
+            }
+        });
+
+        profileBtn.setOnAction(e -> {
+            try {
+                switchToProfile(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        viewFeedbackBtn.setOnAction(e -> {
+            try {
+                switchToFeedback(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        viewBookingBtn.setOnAction(e -> {
+            try {
+                switchToViewBooking(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
         });
     }

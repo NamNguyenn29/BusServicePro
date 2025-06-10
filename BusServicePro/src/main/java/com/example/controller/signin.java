@@ -37,6 +37,7 @@ public class signin {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("Sign Up");
         stage.setScene(registerScene);
+        stage.setTitle("Sign Up");
         stage.show();
     }
 
@@ -128,14 +129,7 @@ public class signin {
     }
 
     @FXML
-    private RadioButton userRadioBtn;
-    @FXML
-    private RadioButton adminRadioBtn;
-
-    @FXML
     private void initialize() {
-
-
         textField = new TextField();
         textField.setVisible(false);
         textField.setManaged(false);
@@ -198,19 +192,19 @@ public class signin {
                 }
             }
         });
-//        userRadioBtn.setSelected(true);
+
+//        userRd.setSelected(true);
 //        signinBtn.setOnAction(e -> {
 //            try {
-//                if (userRadioBtn.isSelected()) {
+//                if (userRd.isSelected()) {
 //                    getSignedIn(e);
-//                } else if (adminRadioBtn.isSelected()) {
+//                } else if (adminRd.isSelected()) {
 //                    getSignedInAsAdmin(e);
 //                }
 //            } catch (IOException ex) {
 //                throw new RuntimeException(ex);
 //            }
 //        });
-
     }
 
     private void showAlert(Alert.AlertType type, String title, String message) {
@@ -221,7 +215,8 @@ public class signin {
         alert.showAndWait();
 
     }
-    public static int getIDFromSignin(){
+
+    public static int getIDFromSignin() {
         return userID;
     }
 }
