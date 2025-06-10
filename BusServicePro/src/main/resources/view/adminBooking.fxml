@@ -31,7 +31,7 @@
             <TableView layoutX="206.0" layoutY="138.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="100.0">
               <columns>
                 <TableColumn fx:id="bookingID" prefWidth="111.0" text="Booking ID" />
-                <TableColumn fx:id="trip" prefWidth="111.0" text="Trip" />
+                <TableColumn fx:id="tripID" prefWidth="111.0" text="Trip ID" />
                   <TableColumn fx:id="departureStop" prefWidth="111.0" text="Departure Stop" />
                   <TableColumn fx:id="arrivalStop" prefWidth="111.0" text="Arrival Stop" />
                   <TableColumn fx:id="departureTime" prefWidth="111.0" text="Departure Time" />
