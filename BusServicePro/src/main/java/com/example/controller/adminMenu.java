@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -98,6 +100,33 @@ public class adminMenu {
         parentAnchorPane.getChildren().setAll(((AnchorPane) adminBookingRoot).getChildren());
     }
 
+    public void setContent(AnchorPane parentAnchorPane) {
+        parentAnchorPane.getChildren().setAll(parentAnchorPane.getChildren());
+    }
+
+    @FXML
+    private Button tripManagement;
+
+    @FXML
+    private void switchToTripManagement(ActionEvent event) throws IOException {
+        URL fxmlLocation = getClass().getResource("/view/adminMenu.fxml");
+        FXMLLoader loader = new FXMLLoader(fxmlLocation);
+        Parent tripManagementRoot = loader.load();
+
+        adminMenu tripManagementController = loader.getController();
+
+        AnchorPane newAnchorPane = new AnchorPane();
+        List<Node> childrenCopy = new ArrayList<>(parentAnchorPane.getChildren());
+        parentAnchorPane.getChildren().clear();
+        newAnchorPane.getChildren().addAll(childrenCopy);
+
+        tripManagementController.setContent(newAnchorPane);
+
+        AnchorPane tripManagementRootPane = (AnchorPane) tripManagementRoot;
+        AnchorPane anchorPane = (AnchorPane) tripManagementRootPane.lookup("#parentAnchorPane");
+        parentAnchorPane.getChildren().setAll(anchorPane.getChildren());
+    }
+
     @FXML
     private void initialize() {
         signoutBtn.setOnAction(e -> {
@@ -127,6 +156,14 @@ public class adminMenu {
         viewBookingBtn.setOnAction(e -> {
             try {
                 switchToViewBooking(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        tripManagement.setOnAction(e -> {
+            try {
+                switchToTripManagement(e);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
