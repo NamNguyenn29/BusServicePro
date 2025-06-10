@@ -41,11 +41,11 @@
                   <Font name="Tahoma" size="17.0" />
                </font>
             </Text>
-            <TableView fx:id="feedbackTable" layoutX="159.0" layoutY="432.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="400.0">
+            <TableView fx:id="feedbackTable" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="400.0">
               <columns>
                 <TableColumn fx:id="feedbackID" prefWidth="205.0" text="Feedback ID" />
                 <TableColumn fx:id="submitDate" prefWidth="205.0" text="Submit Date" />
-                  <TableColumn fx:id="function" minWidth="4.7999267578125" prefWidth="205.0" text="Content" />
+                  <TableColumn fx:id="function" prefWidth="205.0" text="Content" />
               </columns>
             </TableView>
             <Button fx:id="submit" mnemonicParsing="false" prefWidth="75.0" text="Submit" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="325.0">

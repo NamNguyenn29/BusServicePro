@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DatabaseConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/busservice";
     private static final String USER = "root";
-    private static final String PASSWORD = "12345678"; // nếu dùng XAMPP thường để trống
+    private static final String PASSWORD = "14102004"; // nếu dùng XAMPP thường để trống
 
     public static Connection getConnection() {
         try {
