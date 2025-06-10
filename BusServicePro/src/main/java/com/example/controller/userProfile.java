@@ -54,12 +54,12 @@ public class userProfile {
             user.setName(name);
             user.setEmail(email);
             user.setPhone(phone);
-            if(!password.equals(user.getPassword())) {
-                user.setPassword(PasswordUtil.hashPassword(password));
-            }
 //            if (!password.equals(user.getPassword())) {
 //                user.setPassword(password);
 //            }
+            if(!password.equals(user.getPassword())) {
+                user.setPassword(PasswordUtil.hashPassword(password));
+            }
             if(UserDAO.updateUser(user)) {
                 showAlert(Alert.AlertType.INFORMATION, "Info", "Update user successfully");
             }else{
