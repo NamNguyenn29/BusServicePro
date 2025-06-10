@@ -52,7 +52,6 @@ public class userProfile {
             String email=emailField.getText();
             String phone=phoneField.getText();
             user.setUsername(username);
-            user.setPassword(password);
             user.setName(name);
             user.setEmail(email);
             user.setPhone(phone);
@@ -64,6 +63,7 @@ public class userProfile {
             }else{
                 showAlert(Alert.AlertType.ERROR, "Error", "Something went wrong");
             }
+
         });
         refreshBtn.setOnAction(event -> {
             usernameField.setText(user.getUsername());

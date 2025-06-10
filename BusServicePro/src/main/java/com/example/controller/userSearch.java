@@ -170,7 +170,7 @@ public class userSearch {
             TableView<Stop> searchRouteTable = new TableView<>();
             TableColumn<Stop, Integer> column0 = new TableColumn<>("Order");
             column0.setId("order");
-            TableColumn<Stop, Stop> column1 = new TableColumn<>("Route ID");
+            TableColumn<Stop, Stop> column1 = new TableColumn<>("Stop");
             column1.setId("StopID");
             column0.setPrefWidth(334);
             column1.setPrefWidth(334);
