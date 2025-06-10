@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -53,32 +59,280 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </Button>
-                  <Button fx:id="tripManagement" mnemonicParsing="false" prefHeight="35.0" text="Trip Management" textFill="#414a4c" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="300.0">
+                  <Button fx:id="tripManagement" onAction="#switchToTripManagement" mnemonicParsing="false" prefHeight="35.0"
+                          text="Trip Management"
+                          textFill="#414a4c" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="300.0">
                      <font>
                         <Font name="Tahoma" size="17.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="viewBookingBtn" onAction="#switchToViewBooking" mnemonicParsing="false" prefHeight="35.0" text="View Booking"
-                          AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="350.0">
+                  <Button fx:id="viewBookingBtn" mnemonicParsing="false" onAction="#switchToViewBooking" prefHeight="35.0" text="View Booking" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="350.0">
                      <font>
                         <Font name="Tahoma" size="17.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="viewFeedbackBtn" layoutX="76.0" layoutY="406.0" mnemonicParsing="false" onAction="#switchToFeedback" prefHeight="35.0" text="View Feedback" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="400.0">
                      <font>
                         <Font name="Tahoma" size="17.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                     </children>
                 </AnchorPane>
             </left>
          <right>
             <AnchorPane fx:id="parentAnchorPane" prefHeight="768.0" prefWidth="768.0" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane style="-fx-background-color: FFFAFA; -fx-background-radius: 25px;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+                  <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Text layoutX="323.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trip Management" />
+                        <AnchorPane prefHeight="125.0" style="-fx-background-color: #FFFAFA; -fx-background-radius: 25px;">
+                           <VBox.margin>
+                              <Insets left="25.0" right="25.0" top="25.0" />
+                           </VBox.margin>
+                           <children>
+                              <HBox layoutX="46.0" prefHeight="75.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <TextField fx:id="stopID" prefHeight="30.0" prefWidth="175.0" promptText="Stop ID">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="25.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="stopName" prefHeight="30.0" prefWidth="175.0" promptText="Stop Name">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="25.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button fx:id="addBusStopBtn" mnemonicParsing="false" style="-fx-background-color: #10893E;" text="Add" textAlignment="CENTER" textFill="SNOW">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="23.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Tahoma" size="17.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Label text="Add Bus Stop" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="25.0">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="125.0" style="-fx-background-color: #FFFAFA; -fx-background-radius: 25px;">
+                           <children>
+                              <HBox layoutX="46.0" prefHeight="75.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Departure Time">
+                                       <font>
+                                          <Font name="Tahoma" size="19.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="25.0" top="25.0" />
+                                       </HBox.margin>
+                                    </Text>
+                                    <TextField fx:id="departureH" prefHeight="30.0" prefWidth="45.0" promptText="HH">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="25.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":">
+                                       <font>
+                                          <Font name="Tahoma" size="17.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" top="30.0" />
+                                       </HBox.margin>
+                                    </Text>
+                                    <TextField fx:id="departureM" prefHeight="30.0" prefWidth="45.0" promptText="MM">
+                                       <HBox.margin>
+                                          <Insets top="25.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival Time">
+                                       <font>
+                                          <Font name="Tahoma" size="19.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="25.0" top="25.0" />
+                                       </HBox.margin>
+                                    </Text>
+                                    <TextField fx:id="arrivalH" prefHeight="30.0" prefWidth="45.0" promptText="HH">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="25.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":">
+                                       <font>
+                                          <Font name="Tahoma" size="17.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" top="30.0" />
+                                       </HBox.margin>
+                                    </Text>
+                                    <TextField fx:id="arrivalM" prefHeight="30.0" prefWidth="45.0" promptText="MM">
+                                       <HBox.margin>
+                                          <Insets top="25.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button fx:id="addScheduleBtn" mnemonicParsing="false" style="-fx-background-color: #10893E;" text="Add" textAlignment="CENTER" textFill="SNOW">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="23.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Tahoma" size="17.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Label text="Add Schedule" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="25.0">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="25.0" right="25.0" top="25.0" />
+                           </VBox.margin>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="125.0" style="-fx-background-color: #FFFAFA; -fx-background-radius: 25px;">
+                           <children>
+                              <HBox layoutX="46.0" prefHeight="75.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <TextField fx:id="routeID" prefHeight="30.0" prefWidth="175.0" promptText="Route ID">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="25.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button fx:id="addRouteBtn" mnemonicParsing="false" style="-fx-background-color: #10893E;" text="Add" textAlignment="CENTER" textFill="SNOW">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="23.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Tahoma" size="17.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Label text="Add Route" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="25.0">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="25.0" right="25.0" top="25.0" />
+                           </VBox.margin>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="125.0" style="-fx-background-color: #FFFAFA; -fx-background-radius: 25px;">
+                           <children>
+                              <HBox layoutX="46.0" prefHeight="75.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <TextField fx:id="busID" prefHeight="30.0" prefWidth="125.0" promptText="Bus ID">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="25.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="licensePlate" prefHeight="30.0" prefWidth="125.0" promptText="License Plate">
+                                       <HBox.margin>
+                                          <Insets left="25.0" top="25.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="capacity" prefHeight="30.0" prefWidth="125.0" promptText="Capacity">
+                                       <HBox.margin>
+                                          <Insets left="25.0" top="25.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button fx:id="addBusBtn" mnemonicParsing="false" style="-fx-background-color: #10893E;" text="Add" textAlignment="CENTER" textFill="SNOW">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="23.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Tahoma" size="17.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Label text="Add Bus" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="25.0">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="25.0" right="25.0" top="25.0" />
+                           </VBox.margin>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="125.0" style="-fx-background-color: #FFFAFA; -fx-background-radius: 25px;">
+                           <children>
+                              <HBox layoutX="46.0" layoutY="39.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <TextField fx:id="tripID" prefHeight="30.0" prefWidth="125.0" promptText="Trip ID">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="25.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <ComboBox fx:id="route" prefHeight="30.0" prefWidth="100.0" promptText="Route">
+                                       <HBox.margin>
+                                          <Insets left="25.0" top="25.0" />
+                                       </HBox.margin>
+                                    </ComboBox>
+                                    <ComboBox fx:id="departureTime" prefHeight="30.0" prefWidth="100.0" promptText="Departure">
+                                       <HBox.margin>
+                                          <Insets left="25.0" top="25.0" />
+                                       </HBox.margin>
+                                    </ComboBox>
+                                    <ComboBox fx:id="arrivalTime" prefHeight="30.0" prefWidth="100.0" promptText="Arrival">
+                                       <HBox.margin>
+                                          <Insets left="25.0" top="25.0" />
+                                       </HBox.margin>
+                                    </ComboBox>
+                                    <ComboBox fx:id="bus" prefHeight="30.0" prefWidth="100.0" promptText="Bus">
+                                       <HBox.margin>
+                                          <Insets left="25.0" top="25.0" />
+                                       </HBox.margin>
+                                    </ComboBox>
+                                 </children>
+                              </HBox>
+                              <Label text="Add Trip" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="25.0">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="createTripBtn" mnemonicParsing="false" style="-fx-background-color: #10893E;" text="Create a trip" textFill="SNOW" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="15.0">
+                                 <font>
+                                    <Font name="Tahoma" size="17.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="25.0" right="25.0" top="25.0" />
+                           </VBox.margin>
+                        </AnchorPane>
                      </children>
-                  </AnchorPane>
+                  </VBox>
                </children>
             </AnchorPane>
          </right>
