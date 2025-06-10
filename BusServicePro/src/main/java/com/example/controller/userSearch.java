@@ -58,10 +58,11 @@ public class userSearch {
                         trip.getTripID(),
                         from.getStop(),
                         to.getStop(),
-                        from.getDepartureTime(),
                         from.getArrivalTime(),
-                        to.getDepartureTime(),
-                        to.getArrivalTime()
+                        from.getDepartureTime(),
+                        to.getArrivalTime(),
+                        to.getDepartureTime()
+
                 ));
             }
             globalSTT=1;
@@ -103,13 +104,13 @@ public class userSearch {
             column2.setId("departureStop");
             TableColumn<TripLegDisplay, Stop> column3 = new TableColumn<>("Arrival\n Stop");
             column3.setId("arrivalStop");
-            TableColumn<TripLegDisplay, LocalTime> column4 = new TableColumn<>("Arrival\n Start Location");
+            TableColumn<TripLegDisplay, LocalTime> column4 = new TableColumn<>("Arrival\n Start Time");
             column4.setId("arrivalStartLocation");
-            TableColumn<TripLegDisplay, LocalTime> column5 = new TableColumn<>("Departure\n Start Location");
+            TableColumn<TripLegDisplay, LocalTime> column5 = new TableColumn<>("Departure\n Start Time");
             column5.setId("departureStartLocation");
-            TableColumn<TripLegDisplay, LocalTime> column6 = new TableColumn<>("Arrival\n End Location");
+            TableColumn<TripLegDisplay, LocalTime> column6 = new TableColumn<>("Arrival\n End Time");
             column6.setId("arrivalEndLocation");
-            TableColumn<TripLegDisplay, LocalTime> column7 = new TableColumn<>("Departure\n End Location");
+            TableColumn<TripLegDisplay, LocalTime> column7 = new TableColumn<>("Departure\n End Time");
             column7.setId("departureEndLocation");
             column0.setPrefWidth(71);
             column1.setPrefWidth(71);
@@ -165,7 +166,7 @@ public class userSearch {
             TableView<Stop> searchRouteTable = new TableView<>();
             TableColumn<Stop, Integer> column0 = new TableColumn<>("Order");
             column0.setId("order");
-            TableColumn<Stop, Stop> column1 = new TableColumn<>("Route ID");
+            TableColumn<Stop, Stop> column1 = new TableColumn<>("Stop");
             column1.setId("StopID");
             column0.setPrefWidth(334);
             column1.setPrefWidth(334);

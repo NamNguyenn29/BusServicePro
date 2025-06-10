@@ -50,15 +50,18 @@ public class userProfile {
             String email=emailField.getText();
             String phone=phoneField.getText();
             user.setUsername(username);
-            user.setPassword(password);
             user.setName(name);
             user.setEmail(email);
             user.setPhone(phone);
+            if (!password.equals(user.getPassword())) {
+                user.setPassword(password);
+            }
             if(UserDAO.updateUser(user)) {
                 showAlert(Alert.AlertType.INFORMATION, "Info", "Update user successfully");
             }else{
                 showAlert(Alert.AlertType.ERROR, "Error", "Something went wrong");
             }
+
         });
         refreshBtn.setOnAction(event -> {
             usernameField.setText(user.getUsername());
