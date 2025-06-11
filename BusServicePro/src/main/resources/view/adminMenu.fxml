@@ -59,9 +59,7 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </Button>
-                  <Button fx:id="tripManagement" onAction="#switchToTripManagement" mnemonicParsing="false" prefHeight="35.0"
-                          text="Trip Management"
-                          textFill="#414a4c" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="300.0">
+                  <Button fx:id="tripManagement" mnemonicParsing="false" onAction="#switchToTripManagement" prefHeight="35.0" text="Trip Management" textFill="#414a4c" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="300.0">
                      <font>
                         <Font name="Tahoma" size="17.0" />
                      </font>
@@ -106,20 +104,9 @@
                                     </TextField>
                                     <TextField fx:id="stopName" prefHeight="30.0" prefWidth="175.0" promptText="Stop Name">
                                        <HBox.margin>
-                                          <Insets left="50.0" top="25.0" />
+                                          <Insets left="25.0" top="25.0" />
                                        </HBox.margin>
                                     </TextField>
-                                    <Button fx:id="addBusStopBtn" mnemonicParsing="false" style="-fx-background-color: #10893E;" text="Add" textAlignment="CENTER" textFill="SNOW">
-                                       <HBox.margin>
-                                          <Insets left="50.0" top="23.0" />
-                                       </HBox.margin>
-                                       <font>
-                                          <Font name="Tahoma" size="17.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
                                  </children>
                               </HBox>
                               <Label text="Add Bus Stop" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="25.0">
@@ -127,12 +114,25 @@
                                     <Font name="Tahoma Bold" size="25.0" />
                                  </font>
                               </Label>
+                              <Button fx:id="addBusStopBtn" mnemonicParsing="false" style="-fx-background-color: #10893E;" text="Add" textAlignment="CENTER" textFill="SNOW" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="15.0">
+                                 <font>
+                                    <Font name="Tahoma" size="17.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                         </AnchorPane>
                         <AnchorPane prefHeight="125.0" style="-fx-background-color: #FFFAFA; -fx-background-radius: 25px;">
                            <children>
                               <HBox layoutX="46.0" prefHeight="75.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                                  <children>
+                                    <ComboBox fx:id="scheduleBusStop" prefHeight="30.0" prefWidth="125.0" promptText="Bus Stop">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="25.0" />
+                                       </HBox.margin>
+                                    </ComboBox>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Departure Time">
                                        <font>
                                           <Font name="Tahoma" size="19.0" />
@@ -185,17 +185,6 @@
                                           <Insets top="25.0" />
                                        </HBox.margin>
                                     </TextField>
-                                    <Button fx:id="addScheduleBtn" mnemonicParsing="false" style="-fx-background-color: #10893E;" text="Add" textAlignment="CENTER" textFill="SNOW">
-                                       <HBox.margin>
-                                          <Insets left="50.0" top="23.0" />
-                                       </HBox.margin>
-                                       <font>
-                                          <Font name="Tahoma" size="17.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
                                  </children>
                               </HBox>
                               <Label text="Add Schedule" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="25.0">
@@ -203,6 +192,14 @@
                                     <Font name="Tahoma Bold" size="25.0" />
                                  </font>
                               </Label>
+                              <Button fx:id="addScheduleBtn" mnemonicParsing="false" style="-fx-background-color: #10893E;" text="Add" textAlignment="CENTER" textFill="SNOW" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="15.0">
+                                 <font>
+                                    <Font name="Tahoma" size="17.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                            <VBox.margin>
                               <Insets left="25.0" right="25.0" top="25.0" />
@@ -217,17 +214,11 @@
                                           <Insets left="50.0" top="25.0" />
                                        </HBox.margin>
                                     </TextField>
-                                    <Button fx:id="addRouteBtn" mnemonicParsing="false" style="-fx-background-color: #10893E;" text="Add" textAlignment="CENTER" textFill="SNOW">
+                                    <ComboBox fx:id="routeBusStop" prefHeight="30.0" prefWidth="175.0" promptText="Bus Stop">
                                        <HBox.margin>
-                                          <Insets left="50.0" top="23.0" />
+                                          <Insets left="25.0" top="25.0" />
                                        </HBox.margin>
-                                       <font>
-                                          <Font name="Tahoma" size="17.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
+                                    </ComboBox>
                                  </children>
                               </HBox>
                               <Label text="Add Route" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="25.0">
@@ -235,6 +226,14 @@
                                     <Font name="Tahoma Bold" size="25.0" />
                                  </font>
                               </Label>
+                              <Button fx:id="addRouteBtn" mnemonicParsing="false" style="-fx-background-color: #10893E;" text="Add" textAlignment="CENTER" textFill="SNOW" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="15.0">
+                                 <font>
+                                    <Font name="Tahoma" size="17.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                            <VBox.margin>
                               <Insets left="25.0" right="25.0" top="25.0" />
@@ -259,17 +258,11 @@
                                           <Insets left="25.0" top="25.0" />
                                        </HBox.margin>
                                     </TextField>
-                                    <Button fx:id="addBusBtn" mnemonicParsing="false" style="-fx-background-color: #10893E;" text="Add" textAlignment="CENTER" textFill="SNOW">
+                                    <ComboBox fx:id="busRoute" prefHeight="30.0" prefWidth="125.0" promptText="Route">
                                        <HBox.margin>
-                                          <Insets left="50.0" top="23.0" />
+                                          <Insets left="25.0" top="25.0" />
                                        </HBox.margin>
-                                       <font>
-                                          <Font name="Tahoma" size="17.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
+                                    </ComboBox>
                                  </children>
                               </HBox>
                               <Label text="Add Bus" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="25.0">
@@ -277,6 +270,14 @@
                                     <Font name="Tahoma Bold" size="25.0" />
                                  </font>
                               </Label>
+                              <Button fx:id="addBusBtn" mnemonicParsing="false" style="-fx-background-color: #10893E;" text="Add" textAlignment="CENTER" textFill="SNOW" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="15.0">
+                                 <font>
+                                    <Font name="Tahoma" size="17.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                            <VBox.margin>
                               <Insets left="25.0" right="25.0" top="25.0" />
