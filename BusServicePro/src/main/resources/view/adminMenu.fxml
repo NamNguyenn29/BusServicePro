@@ -36,7 +36,7 @@
                         </ImageView>
                         <StackPane prefHeight="75.0" prefWidth="256.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="175.0">
                             <children>
-                                <Text fill="SNOW" strokeType="OUTSIDE" strokeWidth="0.0" text="admin">
+                                <Text fx:id="adminInfor" fill="SNOW" strokeType="OUTSIDE" strokeWidth="0.0" text="admin">
                                     <font>
                                         <Font name="Tahoma" size="25.0" />
                                     </font>

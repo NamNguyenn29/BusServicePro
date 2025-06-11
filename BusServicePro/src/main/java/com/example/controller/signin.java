@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.DAO.AdminDAO;
 import com.example.models.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -180,10 +181,11 @@ public class signin {
                     }
                 }
             } else if (adminRd.isSelected()) {
-                if (UserDAO.login(username, password) == null) {
-                    showAlert(Alert.AlertType.ERROR, "Error", "Tên người dùng hoặc mật mã không đúng");
+                if (AdminDAO.login(username, password) == null) {
+                    showAlert(Alert.AlertType.ERROR, "Error", "Tên admin hoặc mật mã không đúng");
                 } else {
                     showAlert(Alert.AlertType.INFORMATION, "Info", "Đăng nhập thành công");
+                    this.userID = AdminDAO.login(username,password).getAdminID();
                     try {
                         getSignedInAsAdmin(e);
                     } catch (IOException ex) {

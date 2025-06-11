@@ -1,5 +1,10 @@
 package com.example.controller;
 
+import com.example.DAO.AdminDAO;
+import com.example.models.Admin;
+import com.example.models.Bus;
+import com.example.models.Route;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,11 +12,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
+import javafx.scene.text.Text;
+import com.example.DAO.RouteDAO;
+import com.example.DAO.BusDAO;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -20,6 +28,10 @@ import java.util.List;
 public class adminMenu {
     @FXML
     private Button signoutBtn;
+    @FXML
+    private ComboBox<Route>route;
+    @FXML
+    private ComboBox<Bus>bus;
 
     @FXML
     private void getSignedOut(ActionEvent e) throws IOException {
@@ -60,6 +72,8 @@ public class adminMenu {
 
     @FXML
     private Button viewFeedbackBtn;
+    @FXML
+    private Text adminInfor;
 
     @FXML
     private void switchToFeedback(ActionEvent event) throws IOException {
@@ -129,6 +143,8 @@ public class adminMenu {
 
     @FXML
     private void initialize() {
+        Admin admin= AdminDAO.getAdminByID(signin.getIDFromSignin());
+        adminInfor.setText(admin.getUsername());
         signoutBtn.setOnAction(e -> {
             try {
                 getSignedOut(e);
@@ -168,5 +184,9 @@ public class adminMenu {
                 throw new RuntimeException(ex);
             }
         });
+        List<Route>routes= RouteDAO.getAllRoutes();
+        route.setItems(FXCollections.observableArrayList(routes));
+        List<Bus>buses= BusDAO.getAllBuses();
+        bus.setItems(FXCollections.observableArrayList(buses));
     }
 }
