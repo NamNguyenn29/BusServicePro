@@ -160,7 +160,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Sign In");
         primaryStage.show();
-        Admin admin = new Admin("Nam11","123");
-        AdminDAO.register(admin);
+
     }
 }
