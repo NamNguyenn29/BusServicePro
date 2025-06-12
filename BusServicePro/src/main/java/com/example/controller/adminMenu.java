@@ -18,7 +18,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
-
+import com.example.DAO.RouteStopDAO;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
@@ -278,8 +278,15 @@ public class adminMenu {
                     List<Route> updatedRoutes = RouteDAO.getAllRoutes();
                     busRoute.setItems(FXCollections.observableArrayList(updatedRoutes));
                     route.setItems(FXCollections.observableArrayList(updatedRoutes));
-                } else {
-                    showAlert(Alert.AlertType.ERROR, "Error", "Route is existed");
+                }else{
+                    Route route2 = RouteDAO.getRouteById(Integer.valueOf(routeID.getText()));
+                    List<Stop> stopList1=route2.getStops();
+                    if(RouteStopDAO.addRouteStop(Integer.valueOf(routeID.getText()),routeBusStop.getSelectionModel().getSelectedItem().getStopID(),stopList1.size()+1)){
+                        showAlert(Alert.AlertType.INFORMATION, "Infor", "Route Updated Successfully");
+
+                    }else{
+                        showAlert(Alert.AlertType.ERROR, "Error", "Route Update Failed");
+                    }
                 }
             } catch (Exception ex) {
                 showAlert(Alert.AlertType.ERROR, "Error", "Please fill all the fields");
