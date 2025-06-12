@@ -273,19 +273,33 @@ public class adminMenu {
                 List<Stop> stopList = new ArrayList<>();
                 stopList.add(routeBusStop.getSelectionModel().getSelectedItem());
                 Route route1 = new Route(Integer.valueOf(routeID.getText()), stopList);
-                if (RouteDAO.addRoute(route1)) {
+                List<Route> routeList = RouteDAO.getAllRoutes();
+                if (routeList.contains(route1)) {
+                    RouteDAO.addRoute(route1);
                     showAlert(Alert.AlertType.INFORMATION, "Infor", "Route Added");
                     List<Route> updatedRoutes = RouteDAO.getAllRoutes();
                     busRoute.setItems(FXCollections.observableArrayList(updatedRoutes));
                     route.setItems(FXCollections.observableArrayList(updatedRoutes));
-                } else {
-                    showAlert(Alert.AlertType.ERROR, "Error", "Route is existed");
+                }else{
+                    Route route2 = RouteDAO.getRouteById(Integer.valueOf(routeID.getText()));
+                    List<Integer> stopsID = RouteStopDAO.getStopsByRouteId(route2.getRouteID());
+                    List<Stop> stop2s = new ArrayList<>();
+                    for(Integer stopID : stopsID) {
+                        stop2s.add(StopDAO.getStopById(stopID));
+                    }
+
+                    if(RouteStopDAO.addRouteStop(Integer.valueOf(routeID.getText()),routeBusStop.getSelectionModel().getSelectedItem().getStopID(),stop2s.size()+1)){
+                        showAlert(Alert.AlertType.INFORMATION, "Infor", "Route Updated Successfully");
+                    }else{
+                        showAlert(Alert.AlertType.ERROR, "Error", "Route Update Failed");
+                    }
                 }
             } catch (Exception ex) {
                 showAlert(Alert.AlertType.ERROR, "Error", "Please fill all the fields");
             }
 
         });
+
         busRoute.setItems(FXCollections.observableArrayList(routes));
         addBusBtn.setOnAction(e -> {
             try {
