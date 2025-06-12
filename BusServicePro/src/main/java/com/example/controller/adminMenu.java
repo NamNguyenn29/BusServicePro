@@ -290,9 +290,11 @@ public class adminMenu {
         addBusBtn.setOnAction(e -> {
             try {
                 Route route1 = busRoute.getSelectionModel().getSelectedItem();
-                Bus bus = new Bus(Integer.valueOf(busID.getText()), licensePlate.getText(), Integer.valueOf(capacity.getText()), route1);
-                if (BusDAO.addBus(bus)) {
+                Bus bus1 = new Bus(Integer.valueOf(busID.getText()), licensePlate.getText(), Integer.valueOf(capacity.getText()), route1);
+                if (BusDAO.addBus(bus1)) {
                     showAlert(Alert.AlertType.INFORMATION, "Infor", "Bus Added");
+                    List<Bus> updatedBuses = BusDAO.getAllBuses();
+                    bus.setItems(FXCollections.observableArrayList(updatedBuses));
                 } else {
                     showAlert(Alert.AlertType.ERROR, "Error", "Bus is existed");
                 }
