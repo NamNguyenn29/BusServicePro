@@ -53,3 +53,12 @@ AddminDAO
 
 mức độ cao đến thấp : booking - trip - bus - route - stop - stopTime
 
+
+Admin account :
+    Nam11
+    123
+
+User account:
+    nam20
+    123
+
