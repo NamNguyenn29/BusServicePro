@@ -274,7 +274,13 @@ public class adminMenu {
                 stopList.add(routeBusStop.getSelectionModel().getSelectedItem());
                 Route route1 = new Route(Integer.valueOf(routeID.getText()), stopList);
                 List<Route> routeList = RouteDAO.getAllRoutes();
-                if (routeList.contains(route1)) {
+                boolean found = false;
+                for(Route route : routeList) {
+                    if (route.getRouteID() == route1.getRouteID()) {
+                        found = true;
+                    }
+                }
+                if (!found) {
                     RouteDAO.addRoute(route1);
                     showAlert(Alert.AlertType.INFORMATION, "Infor", "Route Added");
                     List<Route> updatedRoutes = RouteDAO.getAllRoutes();
